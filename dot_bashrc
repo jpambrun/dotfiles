@@ -21,5 +21,4 @@ paste() {
     powershell.exe Get-Clipboard | sed 's/\r//'
 }
 
-export WEZTERM_SHELL_SKIP_USER_VARS=1
-source ~/bin/wez_integration.sh
+echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"

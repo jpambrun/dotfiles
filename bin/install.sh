@@ -18,6 +18,8 @@ curl https://i.ip.dev.health/grafana/k6 | bash
 curl https://i.ip.dev.health/casey/just | bash
 curl https://i.ip.dev.health/twpayne/chezmoi | bash
 curl https://i.ip.dev.health/mutagen-io/mutagen-compose | bash
+curl https://i.ip.dev.health/zellij-org/zellij | bash
+
 
 curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
 mv /tmp/hx .
