@@ -1,5 +1,9 @@
 [user]
+{{- if hasPrefix "CH" .chezmoi.hostname }}
   email = jean-francois.pambrun@changehealthcare.com
+{{- else }}
+  email = jf.pambrun@gmail.com
+{{- end }}
   name = JF Pambrun
 
 [core]
