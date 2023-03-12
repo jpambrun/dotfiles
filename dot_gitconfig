@@ -1,0 +1,58 @@
+[user]
+  email = jean-francois.pambrun@changehealthcare.com
+  name = JF Pambrun
+
+[core]
+  editor = vim
+  pager = delta --light --line-numbers
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  theme = 'GitHub'
+
+[credential]
+  helper = store
+
+[merge]
+  tool = meld
+  conflictstyle = diff3
+
+[color]
+  status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+
+[alias]
+  st = status
+  ci = commit -v
+  br = branch
+  co = checkout
+  df = diff
+  lg  = log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  b = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	ignore = update-index --skip-worktree
+	unignore = update-index --no-skip-worktree
+	ignored = !git ls-files -v | grep \"^S\"
+[push]
+	default = simple
+[credential]
+	helper = store
+[diff "image"]
+	command = ~/bin/git-imgdiff
+
+[url "https://github.com/"]
+    insteadOf = "gh:"
+
+[pager]
+    difftool = true
+[diff]
+    tool = icdiff
+[difftool "icdiff"]
+    prompt = false
+    cmd = icdiff --head=5000 --highlight --line-numbers -L \"$BASE\" -L \"$REMOTE\" \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+

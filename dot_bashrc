@@ -1,0 +1,25 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+eval "$(starship init bash)"
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
+alias ls=exa
+alias ll="exa -la --git"
+eval "$(mcfly init bash)"
+alias h=helix
+export COLORTERM=truecolor
+source /usr/share/nvm/init-nvm.sh
+
+alias clip=clip.exe
+paste() {
+    powershell.exe Get-Clipboard | sed 's/\r//'
+}
+

@@ -1,0 +1,35 @@
+[username]
+disabled = true
+
+[hostname]
+format =  "on [$hostname](bold red) "
+
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+
+[gcloud]
+symbol = '☁'
+format = 'using [$symbol@$domain(\($project\))]($style) '
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[package]
+disabled = true
+
+[git_branch]
+symbol = '🌱'
+
+[scala]
+disabled = true
+
+[kubernetes]
+format = 'on [⛵$context \($namespace\)](dimmed green) '
+disabled = false
+
+[kubernetes.context_aliases]
+"gke_valid-octagon-285217_us-central1-f_vision-k8s" = "vision-poc"
