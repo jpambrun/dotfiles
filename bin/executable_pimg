@@ -1,0 +1,4 @@
+#! /bin/bash
+
+mkdir -p img
+powershell.exe -command '$ErrorActionPreference = "Stop"; $img = get-clipboard -format image; $date= Get-Date -Format "yyyy-MM-dd_HH-mm-ss"; $img.save("./img/"+$date+".png"); "![](./img/"+$date+".png)" | Write-Host '
