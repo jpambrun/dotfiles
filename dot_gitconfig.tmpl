@@ -7,8 +7,8 @@
   name = JF Pambrun
 
 [core]
-  editor = vim
-  pager = delta --light --line-numbers
+  editor = hx
+  #pager = delta --light --line-numbers
 
 [interactive]
   diffFilter = delta --color-only
@@ -52,11 +52,3 @@
 
 [pager]
     difftool = true
-[diff]
-    tool = icdiff
-[difftool "icdiff"]
-    prompt = false
-    cmd = icdiff --head=5000 --highlight --line-numbers -L \"$BASE\" -L \"$REMOTE\" \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-
