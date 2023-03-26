@@ -1,14 +1,32 @@
 
 - name: commit
+  temperature: 0.2 
   prompt: >
+    I want you to act as a software developper.
     Suggest six commit messages based on the following git diff.
     Do not provide any explanations.
     Only show a list of 72 character or less commit messages.
+    Text: """
+    __INPUT__
+    """
 
 - name: review
+  temperature: 0.2 
   prompt: >
     I want you to act as a senior programmer. 
     I want you to review the following code.
+    Text: """
+    __INPUT__
+    """
+ 
+- name: text
+  temperature: 0.8 
+  prompt: >
+    I want you to act as a proof reader.
+    I want you to improved the style and corrent misspelling.
+    Text: """
+    __INPUT__
+    """
  
 - name: shell
   prompt: >
