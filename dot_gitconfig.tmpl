@@ -1,5 +1,5 @@
 [user]
-{{- if hasPrefix "CH" .chezmoi.hostname }}
+{{- if or (hasPrefix "CH" .chezmoi.hostname)  (hasPrefix "C0" .chezmoi.hostname) }}
   email = jean-francois.pambrun@changehealthcare.com
 {{- else }}
   email = jf.pambrun@gmail.com

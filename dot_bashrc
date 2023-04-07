@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export PATH="$HOME/bin:$PATH"
 alias ls='ls --color=auto'
 eval "$(starship init bash)"
 source <(kubectl completion bash)
@@ -14,7 +15,6 @@ alias ls=exa
 alias ll="exa -la --git"
 eval "$(mcfly init bash)"
 export COLORTERM=truecolor
-export PATH="$HOME/bin:$PATH"
 
 alias clip=clip.exe
 paste() {
@@ -22,3 +22,4 @@ paste() {
 }
 
 echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
+
