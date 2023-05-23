@@ -12,6 +12,7 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 alias ls=exa
+alias hx=helix
 alias ll="exa -la --git"
 eval "$(mcfly init bash)"
 export COLORTERM=truecolor
@@ -21,5 +22,8 @@ paste() {
     powershell.exe Get-Clipboard | sed 's/\r//'
 }
 
+alias aied="paste | aichat -r text"
+
 echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
+complete -C /home/jpambrun/bin/xc xc

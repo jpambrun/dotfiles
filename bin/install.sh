@@ -20,12 +20,16 @@ curl https://i.ip.dev.health/twpayne/chezmoi | bash
 curl https://i.ip.dev.health/mutagen-io/mutagen-compose | bash
 curl https://i.ip.dev.health/zellij-org/zellij | bash
 curl https://i.ip.dev.health/starship/starship | bash
+curl https://i.ip.dev.health/sigoden/aichat | bash
+curl https://i.ip.dev.health/ast-grep/ast-grep  | bash
+curl https://i.ip.dev.health/charmbracelet/mods  | bash
+curl https://i.ip.dev.health/charmbracelet/glow| bash
 
 
-curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
-mv /tmp/hx .
-mv /tmp/runtime .
+# curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
+# mv /tmp/hx .
+# mv /tmp/runtime .
 
 
-curl -L https://github.com/mutagen-io/mutagen/releases/download/v0.17.0/mutagen_linux_amd64_v0.17.0.tar.gz | tar xzf - -C /tmp
-mv /tmp/mutagen* .
+# curl -L https://github.com/mutagen-io/mutagen/releases/download/v0.17.0/mutagen_linux_amd64_v0.17.0.tar.gz | tar xzf - -C /tmp
+# mv /tmp/mutagen* .
