@@ -16,6 +16,7 @@ alias hx=helix
 alias ll="exa -la --git"
 eval "$(mcfly init bash)"
 export COLORTERM=truecolor
+export EDITOR=helix
 
 alias clip=clip.exe
 paste() {
@@ -27,3 +28,5 @@ alias aied="paste | aichat -r text"
 echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
 complete -C /home/jpambrun/bin/xc xc
+
+source /home/jpambrun/.config/broot/launcher/bash/br
