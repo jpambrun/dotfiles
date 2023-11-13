@@ -8,9 +8,6 @@
 export PATH="$HOME/bin:$HOME/.npm-global/bin:$PATH"
 alias ls='ls --color=auto'
 eval "$(starship init bash)"
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
 alias ls=exa
 alias hx=helix
 alias ll="exa -la --git"

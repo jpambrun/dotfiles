@@ -1,9 +1,23 @@
-curl https://i.ip.dev.health/twpayne/chezmoi! | bash
-chezmoi init git@github.com:jpambrun/dotfiles
+``` bash
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+useradd -m -G wheel -s /bin/bash jpambrun
+passwd jpambrun
+exit
+Arch.exe config --default-user jpambrun
 
+sudo pacman -Sy archlinux-keyring 
+sudo pacman -Syu
+sudo pacman -S which git openssh eza helix wget
+
+
+ssh-keygen # add key to github
+
+mkdir bin
+cd bin
+curl https://i.ip.dev.health/twpayne/chezmoi | bash
+./chezmoi init git@github.com:jpambrun/dotfiles
 ```
-sudo pacman -S helix
-```
+
 
 ``` lua
 return {
