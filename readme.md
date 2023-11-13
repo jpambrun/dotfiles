@@ -41,3 +41,5 @@ echo "wsl.exe -u root -e mount --make-rshared /" | sudo tee  /etc/profile.d/02-s
 sudo chmod +x  /etc/profile.d/02-shared-root.sh
 podman system migrate
 ```
+
+ssh-keygen -f ~/.ssh/vida -t ed25519
