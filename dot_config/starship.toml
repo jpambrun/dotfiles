@@ -33,3 +33,8 @@ disabled = false
 
 [kubernetes.context_aliases]
 "gke_valid-octagon-285217_us-central1-f_vision-k8s" = "vision-poc"
+
+[aws]
+disabled = false
+style = 'bold blue'
+symbol = '🅰️'
