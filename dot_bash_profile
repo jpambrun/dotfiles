@@ -1,1 +1,3 @@
 [ -r ~/.bashrc ] && source ~/.bashrc
+
+if [ -e /home/jpambrun/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jpambrun/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

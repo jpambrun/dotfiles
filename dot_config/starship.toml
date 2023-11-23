@@ -9,7 +9,7 @@ truncation_length = 8
 truncation_symbol = "…/"
 
 [gcloud]
-symbol = '☁'
+symbol = ''
 format = 'using [$symbol@$domain(\($project\))]($style) '
 
 [nodejs]
@@ -36,5 +36,8 @@ disabled = false
 
 [aws]
 disabled = false
-style = 'bold blue'
-symbol = '🅰️'
+[aws.region_aliases]
+us-east-1 = 'e1'
+us-east-2 = 'e2'
+us-west-1 = 'w1'
+us-west-2 = 'w2'
