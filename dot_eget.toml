@@ -44,3 +44,5 @@
     asset_filters = ['x86_64.tar.gz', '^sbom']
 ["aaronriekenberg/rust-parallel"]
 ["suyashkumar/dicom"]
+["prefix-dev/pixi"]
+    asset_filters = ['musl.tar.gz']

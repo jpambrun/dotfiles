@@ -25,7 +25,8 @@ curl https://i.ip.dev.health/ast-grep/ast-grep  | bash
 curl https://i.ip.dev.health/charmbracelet/mods  | bash
 curl https://i.ip.dev.health/charmbracelet/glow | bash
 curl https://i.ip.dev.health/Canop/broot | bash
-curl https://i.ip.dev.health/charmbracelet/gum| bash
+curl https://i.ip.dev.health/charmbracelet/gum | bash
+curl https://i.ip.dev.health/Schniz/fnm | bash
 
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
