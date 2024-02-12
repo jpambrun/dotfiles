@@ -1,39 +1,46 @@
 [default]
-sso_session = jpambrun
-region = us-east-2
+sso_session=jpambrun
+region=us-east-2
 
 [profile sandbox-admin]
-sso_session = jpambrun
-sso_account_id = 743078781022
-sso_role_name = Administrator
-region = us-east-2
+sso_session=jpambrun
+sso_account_id=743078781022
+sso_role_name=Administrator
+region=us-east-2
 
 [profile sandbox-ro]
-sso_session = jpambrun
-sso_account_id = 743078781022
-sso_role_name = ReadOnly
-region = us-east-2
+sso_session=jpambrun
+sso_account_id=743078781022
+sso_role_name=ReadOnly
+region=us-east-2
 
 [profile ops-admin]
-sso_session = jpambrun
-sso_account_id = 653312621124
-sso_role_name = Administrator
-region = us-east-2
+sso_session=jpambrun
+sso_account_id=653312621124
+sso_role_name=Administrator
+region=us-east-2
 
 [profile ops-ro]
-sso_session = jpambrun
-sso_account_id = 653312621124
-sso_role_name = ReadOnly
-region = us-east-2
+sso_session=jpambrun
+sso_account_id=653312621124
+sso_role_name=ReadOnly
+region=us-east-2
+sso_start_url=https://d-9a6709cd35.awsapps.com/start
+sso_region=us-east-2
 
 [profile prod-ro]
-sso_session = jpambrun
-sso_account_id = 743078781022
-sso_role_name = 162850226511
-region = us-east-2
+sso_session=jpambrun
+sso_account_id=162850226511
+sso_role_name=ReadOnly
+region=us-east-2
 
+[profile prod-admin]
+sso_session=jpambrun
+sso_account_id=162850226511
+sso_role_name=Administrator
+region=us-east-2
 
 [sso-session jpambrun]
-sso_start_url = https://d-9a6709cd35.awsapps.com/start#
-sso_region = us-east-2
-sso_registration_scopes = sso:account:access
+sso_start_url=https://d-9a6709cd35.awsapps.com/start
+sso_region=us-east-2
+sso_registration_scopes=sso:account:access

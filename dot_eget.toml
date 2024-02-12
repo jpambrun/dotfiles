@@ -46,3 +46,7 @@
 ["suyashkumar/dicom"]
 ["prefix-dev/pixi"]
     asset_filters = ['musl.tar.gz']
+["jetpack-io/devbox"]
+["jdx/mise"]
+    asset_filters = ['linux-x64-musl.tar.xz']
+
