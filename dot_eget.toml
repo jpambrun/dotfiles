@@ -16,6 +16,7 @@
 ["sharkdp/bat"]
 ["carvel-dev/ytt"]
 ["denoland/deno"]
+    asset_filter = ['deno-x86_64-unknown-linux-gnu']
 ["sachaos/viddy"]
 ["cantino/mcfly"]
 ["junegunn/fzf"]
@@ -39,7 +40,8 @@
 ["charmbracelet/mods"]
     asset_filters = ['x86_64.tar.gz', '^sbom']
 ["charmbracelet/glow"]
-["Canop/broot"]
+# ["Canop/broot"]
+    # file  = 'x86_64-unknown-linux-musl/broot'
 ["charmbracelet/gum"]
     asset_filters = ['x86_64.tar.gz', '^sbom']
 ["aaronriekenberg/rust-parallel"]
