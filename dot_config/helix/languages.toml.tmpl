@@ -1,0 +1,11 @@
+[language-server.gpt]
+command = "helix-gpt"
+environment = { HANDLER= "copilot", COPILOT_API_KEY = "{{ (rbw "github copilot token").data.password }}" }
+
+[language-server.ruff-lsp]
+command = "ruff-lsp"
+
+[[language]]
+name = "python"
+language-servers = [ "ruff-lsp", "pylsp", "gpt" ]
+formatter = {command = "sh", args = ["-c", "ruff format - | ruff check --fix-only -"] }

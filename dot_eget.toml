@@ -16,7 +16,7 @@
 ["sharkdp/bat"]
 ["carvel-dev/ytt"]
 ["denoland/deno"]
-    asset_filter = ['deno-x86_64-unknown-linux-gnu']
+    asset_filters = ['^denort']
 ["sachaos/viddy"]
 ["cantino/mcfly"]
 ["junegunn/fzf"]
@@ -51,4 +51,6 @@
 ["jetpack-io/devbox"]
 ["jdx/mise"]
     asset_filters = ['linux-x64-musl.tar.xz']
+["leona/helix-gpt"]
+    file = "helix-gpt-0.28-x86_64-linux"
 
