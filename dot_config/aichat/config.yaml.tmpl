@@ -1,0 +1,8 @@
+save: true
+clients:
+  - type: localai
+    api_key: {{ (rbw "github copilot token").data.password }}
+    api_base: https://192-168-1-247-gpt.ip.dev.health/v1
+    models:
+      - name: gpt
+        max_tokens: 8192
