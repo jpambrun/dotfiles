@@ -53,4 +53,6 @@
     asset_filters = ['linux-x64-musl.tar.xz']
 ["leona/helix-gpt"]
     file = "helix-gpt-0.28-x86_64-linux"
+["extrawurst/gitui"]
+    asset_filters = ["linux-musl"]
 
