@@ -846,3 +846,4 @@ alias hx = helix
 
 
 def --env aw [] { $env.AWS_PROFILE = (cat ~/.aws/config | rg '\[profile ([A-Za-z0-9-]+)' -or '$1' | gum choose) }
+def ci [] {git diff --cached | aichat -r commit | gum choose | xargs -I{} git ci -m"{}"}
