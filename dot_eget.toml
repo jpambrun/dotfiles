@@ -6,6 +6,7 @@
     asset_filters = ['^.asc']
 ["Schniz/fnm"]
 ["dandavison/delta"]
+    asset_filters = ["x86_64-unknown-linux-musl.tar.gz"]
 ["watchexec/watchexec"]
     asset_filters = ['linux-musl.tar.xz', '^xz.b3', '^xz.sha512']
 ["multiprocessio/dsq"]
@@ -14,6 +15,7 @@
     asset_filters = ['_amd64.gz']
 ["devspace-sh/devspace"]
 ["sharkdp/bat"]
+    asset_filters = ["x86_64-unknown-linux-musl.tar.gz"]
 ["carvel-dev/ytt"]
 ["denoland/deno"]
     asset_filters = ['^denort']
@@ -40,6 +42,7 @@
 ["charmbracelet/mods"]
     asset_filters = ['x86_64.tar.gz', '^sbom']
 ["charmbracelet/glow"]
+    asset_filters = ["^sbom"]
 # ["Canop/broot"]
     # file  = 'x86_64-unknown-linux-musl/broot'
 ["charmbracelet/gum"]
@@ -55,4 +58,6 @@
     file = "helix-gpt-0.28-x86_64-linux"
 ["extrawurst/gitui"]
     asset_filters = ["linux-musl"]
-
+["earthly/earthly"]
+["Morganamilo/paru"]
+    asset_filters = ["x86_64.tar.zst"]
