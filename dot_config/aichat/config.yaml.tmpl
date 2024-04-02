@@ -5,5 +5,7 @@ clients:
     api_key: {{ (rbw "github copilot token").data.password }}
     api_base: https://192-168-1-247-gpt.ip.dev.health/v1
     models:
-      - name: gpt
+      - name: gpt-4
+        max_tokens: 16000
+      - name: gpt-3.5-turbo
         max_tokens: 8192
