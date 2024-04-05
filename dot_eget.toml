@@ -65,3 +65,5 @@
     asset_filters = ["duckdb_cli-linux-amd64"]
 ["astral-sh/uv"]
     asset_filters = ["uv-x86_64-unknown-linux-musl"]
+["ankitpokhrel/jira-cli"]
+["Orange-OpenSource/hurl"]
