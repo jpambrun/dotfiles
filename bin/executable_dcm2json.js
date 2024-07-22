@@ -17,12 +17,12 @@ var instance = dicomParser.explicitDataSetToJS(dataSet, options);
 
 function renameKeys(source, dest) {
     dest = dest || {}
-    for (let key in source) {
+    for (const key in source) {
         if (key[0] !== 'x' || source[key].dataOffset !== undefined) continue
         const tag = key.slice(1, 9).toUpperCase()
-        let newKey = standardDataElements[tag] ? standardDataElements[tag].name : key
+        const newKey = standardDataElements[tag] ? standardDataElements[tag].name : key
         if (source[key] instanceof Array) {
-            dest[newKey] = source[key].map(renameKeys)
+            dest[newKey] = source[key].map(v => renameKeys(v))
         } else if (source[key] instanceof Object) {
             dest[newKey] = renameKeys(source[key])
         } else {
@@ -30,7 +30,6 @@ function renameKeys(source, dest) {
         }
     }
     return dest
-
 }
 
 const renamedInstance = renameKeys(instance);

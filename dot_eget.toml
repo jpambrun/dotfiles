@@ -57,7 +57,7 @@
 ["leona/helix-gpt"]
     file = "helix-gpt-0.28-x86_64-linux"
 ["extrawurst/gitui"]
-    asset_filters = ["linux-musl"]
+#    asset_filters = ["linux-musl"]
 ["earthly/earthly"]
 ["Morganamilo/paru"]
     asset_filters = ["x86_64.tar.zst"]
@@ -69,4 +69,7 @@
 ["Orange-OpenSource/hurl"]
 ["oven-sh/bun"]
     asset_filters = ["linux-x64.zip"]
-
+["zyedidia/eget"]
+["StyraInc/regal"]
+["open-policy-agent/opa"]
+    asset_filters = ["opa_linux_amd64_static"]

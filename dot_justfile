@@ -1,0 +1,23 @@
+trino-sandbox:
+    #!/usr/bin/env bun
+    import { $ } from "bun";
+    $.env({ AWS_PROFILE: "sandbox-admin" });
+    const trinoInstance = await $`aws ec2 describe-instances --filters Name=tag:Name,Values=vida-biobank-emr-trino Name=tag:aws:elasticmapreduce:instance-group-role,Values=MASTER`.json()
+    const instanceId = trinoInstance?.Reservations?.[0]?.Instances?.[0]?.InstanceId
+    if(!instanceId) throw new Error('Instance not found')
+    await $`aws ssm start-session --target ${instanceId} --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["8889"], "localPortNumber":["8889"]}'`
+
+
+
+trino-prod:
+    #!/usr/bin/env bun
+    import { $ } from "bun";
+    $.env({ AWS_PROFILE: "prod-admin" });
+    console.log('WARNING CONNECTING TO PRODUCTION')
+    const trinoInstance = await $`aws ec2 describe-instances --filters Name=tag:Name,Values=vida-biobank-emr-trino Name=tag:aws:elasticmapreduce:instance-group-role,Values=MASTER`.json()
+    const instanceId = trinoInstance?.Reservations?.[0]?.Instances?.[0]?.InstanceId
+    if(!instanceId) throw new Error('Instance not found')
+    await $`aws ssm start-session --target ${instanceId} --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["8889"], "localPortNumber":["8889"]}'`
+
+update:
+    GITHUB_TOKEN=$(gh auth token) eget -D

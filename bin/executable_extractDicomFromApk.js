@@ -26,7 +26,6 @@ const s3client = new S3Client({
 const resp = await s3client.getObject(parsedArgs._[0]);
 const partialReader = PartialReader.fromStream(resp.body);
 
-
 await Deno.mkdir(`${filename}/dicom`, { recursive: true })
 
 for await (const entry of read(partialReader)) {
