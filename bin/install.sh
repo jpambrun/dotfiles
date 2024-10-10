@@ -34,5 +34,5 @@ curl https://i.ip.dev.health/Schniz/fnm | bash
 # mv /tmp/runtime .
 
 
-# curl -L https://github.com/mutagen-io/mutagen/releases/download/v0.17.0/mutagen_linux_amd64_v0.17.0.tar.gz | tar xzf - -C /tmp
+# curl -L https://github.com/mutagen-io/mutagen/releases/download/v0.17.6/mutagen_linux_amd64_v0.17.6.tar.gz | tar xzf - -C /tmp
 # mv /tmp/mutagen* .

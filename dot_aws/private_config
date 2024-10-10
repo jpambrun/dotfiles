@@ -1,74 +1,8 @@
 [default]
-sso_session=ssouser
-region=us-east-2
+region=ca-central-1
 
-[profile data-admin]
-sso_session=ssouser
-sso_account_id=975050193694
-sso_role_name=Administrator
-region=us-east-2
+[profile ml-dev]
+region=ca-central-1
+mfa_serial=arn:aws:iam::876954890468:mfa/phone
+role_arn=arn:aws:iam::876954890468:role/rayserve_dev_access
 
-[profile data-ro]
-sso_session=ssouser
-sso_account_id=975050193694
-sso_role_name=ReadOnly
-region=us-east-2
-
-[profile devops-admin]
-sso_session=ssouser
-sso_account_id=653312621124
-sso_role_name=Administrator
-region=us-east-2
-
-[profile devops-ro]
-sso_session=ssouser
-sso_account_id=653312621124
-sso_role_name=ReadOnly
-region=us-east-2
-
-[profile sandbox-admin]
-sso_session=ssouser
-sso_account_id=743078781022
-sso_role_name=Administrator
-region=us-east-2
-
-[profile sandbox-ro]
-sso_session=ssouser
-sso_account_id=743078781022
-sso_role_name=ReadOnly
-region=us-east-2
-
-[profile sdlc-ro]
-sso_session=ssouser
-sso_account_id=139383360831
-sso_role_name=ReadOnly
-region=us-east-2
-
-[profile sdlc-admin]
-sso_session=ssouser
-sso_account_id=139383360831
-sso_role_name=Administrator
-region=us-east-2
-
-[profile prod-ro]
-sso_session=ssouser
-sso_account_id=162850226511
-sso_role_name=ReadOnly
-region=us-east-2
-
-[profile prod-admin]
-sso_session=ssouser
-sso_account_id=162850226511
-sso_role_name=Administrator
-region=us-east-2
-
-[profile prod-loka]
-sso_session=ssouser
-sso_account_id=162850226511
-sso_role_name=BiobankLimitedAccess
-region=us-east-2
-
-[sso-session ssouser]
-sso_start_url=https://d-9a6709cd35.awsapps.com/start
-sso_region=us-east-2
-sso_registration_scopes=sso:account:access

@@ -26,8 +26,6 @@ echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
 complete -C /home/jpambrun/bin/xc xc
 
-export AWS_PROFILE=sandbox-ro
-alias aw=$'export AWS_PROFILE=$(cat ~/.aws/config | rg \'\[profile ([A-Za-z0-9-]+)\' -or \'$1\' | gum choose)'
 
 export BROWSER=chrome
 
