@@ -1,5 +1,5 @@
 k9s:
-  liveViewAutoRefresh: false
+  liveViewAutoRefresh: true
   screenDumpDir: /home/jpambrun/.local/state/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
@@ -8,9 +8,9 @@ k9s:
   ui:
     enableMouse: false
     headless: false
-    logoless: false
+    logoless: true
     crumbsless: false
-    reactive: false
+    reactive: true
     noIcons: false
     defaultsToFullScreen: false
     skin: catppuccin-macchiato

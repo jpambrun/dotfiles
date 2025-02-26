@@ -10,10 +10,18 @@ AWS_VAULT_EXE = "aws-vault.exe"  # Has to be on $PATH in WSL
 CMD_EXE = "cmd.exe"
 
 # Ensure AWS Vault environment variables are shared between WSL and Windows
+AWS_VAULT_CUSTOM_ENVIRONMENT_VARIABLES = {
+    'AWS_SESSION_TOKEN_TTL': '8h',
+    'AWS_ASSUME_ROLE_TTL': '8h',
+    'AWS_FEDERATION_TOKEN_TTL': '8h',
+    'AWS_CHAINED_SESSION_TOKEN_TTL': '8h',
+    'AWS_MIN_TTL' : '8h',
+}
+
 AWS_VAULT_ENVIRONMENT_VARIABLES = (k for k in os.environ.keys() if k.startswith("AWS_VAULT_"))
 WSLENV = os.environ.get("WSLENV")
 os.environ["WSLENV"] = ":".join(
-    s for s in [WSLENV, *AWS_VAULT_ENVIRONMENT_VARIABLES] if s
+    s for s in [WSLENV, *AWS_VAULT_ENVIRONMENT_VARIABLES, *AWS_VAULT_CUSTOM_ENVIRONMENT_VARIABLES] if s
 )
 
 if EXEC in sys.argv:

@@ -24,3 +24,29 @@ update:
 
 ssm targer:
     aws ssm start-session --target {{targer}}
+
+cleanup:
+    find . -name "*Zone.Identifier" -type f -delete
+
+ppg:
+    PYTHONSTARTUP=~/.config/pythonstartup.py  uv run --no-project --with simpleitk --with numpy --with ptpython --with rich ptpython
+
+marimo:
+    uv run --no-project --with duckdb,marimo,pyarrow,polars --python 3.11.6  marimo edit  --no-token --headless dash.py
+
+mount root="/home/jpambrun/mnt_s3":
+    # sudo pacman -S fuse-overlayfs extra/fuse3
+    mkdir -p {{root}}/pipeline-input-data/
+    mkdir -p {{root}}/pipeline-input-data_lower/
+    mkdir -p {{root}}/pipeline-input-data_upper/
+    mkdir -p {{root}}/pipeline-input-data_working/
+    mkdir -p /tmp/s3-cache
+    mount-s3 --read-only --cache /tmp/s3-cache pipeline-input-data {{root}}/pipeline-input-data_lower
+    # fuse-overlayfs -o lowerdir={{root}}/pipeline-input-data_lower,\
+    #                   upperdir={{root}}/pipeline-input-data_upper,\
+    #                   workdir={{root}}/pipeline-input-data_working \
+    #                   {{root}}/pipeline-input-data
+    sudo mount -t overlay overlay -o lowerdir={{root}}/pipeline-input-data_lower,\
+                      upperdir={{root}}/pipeline-input-data_upper,\
+                      workdir={{root}}/pipeline-input-data_working \
+                      {{root}}/pipeline-input-data

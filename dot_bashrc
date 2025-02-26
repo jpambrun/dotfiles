@@ -30,3 +30,9 @@ complete -C /home/jpambrun/bin/xc xc
 export BROWSER=chrome
 
 export AWS_PAGER=""
+
+export KUBECTL_EXTERNAL_DIFF="delta"
+
+alias al="aws-vault exec jf --duration 12h -- bash"
+
+eval "$(just --completions bash)"

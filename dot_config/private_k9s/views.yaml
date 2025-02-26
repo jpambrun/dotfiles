@@ -1,0 +1,10 @@
+views:
+  v1/nodes:
+    sortColumn: TYPE:desc
+    columns:
+      - NAME
+      - NCPU:.metadata.labels.karpenter\.k8s\.aws/instance-cpu
+      - TYPE:.metadata.labels.node\.kubernetes\.io/instance-type
+      - NGPU:.metadata.labels.karpenter\.k8s\.aws/instance-gpu-count
+      - GPU:.metadata.labels.karpenter\.k8s\.aws/instance-gpu-name
+      - CPU/R
