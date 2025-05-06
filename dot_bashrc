@@ -31,8 +31,13 @@ export BROWSER=chrome
 
 export AWS_PAGER=""
 
+alias akubectl="aws-vault exec jf --duration 12h -- kubectl"
+alias ak9s="aws-vault exec jf --duration 12h -- k9s"
+
 export KUBECTL_EXTERNAL_DIFF="delta"
 
 alias al="aws-vault exec jf --duration 12h -- bash"
 
 eval "$(just --completions bash)"
+
+. "$HOME/.cargo/env"
