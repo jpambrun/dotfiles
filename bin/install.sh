@@ -30,6 +30,13 @@ curl https://i.jpillora.com/Schniz/fnm | bash
 curl https://i.jpillora.com/Orange-OpenSource/hurl | bash
 curl https://i.jpillora.com/caddyserver/caddy | bash
 curl https://i.jpillora.com/evanw/esbuild | bash
+curl https://i.jpillora.com/oxyno-zeta/s3-proxy | bash
+curl https://i.jpillora.com/oven-sh/bun | bash
+curl https://i.jpillora.com/sosedoff/pgweb | bash
+curl https://i.jpillora.com/ClementTsang/bottom?select=x86_64-unknown-linux-musl.tar.gz | bash
+curl https://i.jpillora.com/Byron/dua-cli?as=dua | bash
+curl https://i.jpillora.com/joerdav/xc | bash
+curl https://i.jpillora.com/runmedev/runme | bash
 
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp

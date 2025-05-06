@@ -1,3 +1,5 @@
+set unstable
+
 trino-sandbox:
     #!/usr/bin/env bun
     import { $ } from "bun";
@@ -35,6 +37,7 @@ marimo:
     uv run --no-project --with duckdb,marimo,pyarrow,polars --python 3.11.6  marimo edit  --no-token --headless dash.py
 
 mount root="/home/jpambrun/mnt_s3":
+    # works with sudo -E mount-s3 .. 
     # sudo pacman -S fuse-overlayfs extra/fuse3
     mkdir -p {{root}}/pipeline-input-data/
     mkdir -p {{root}}/pipeline-input-data_lower/
@@ -42,11 +45,31 @@ mount root="/home/jpambrun/mnt_s3":
     mkdir -p {{root}}/pipeline-input-data_working/
     mkdir -p /tmp/s3-cache
     mount-s3 --read-only --cache /tmp/s3-cache pipeline-input-data {{root}}/pipeline-input-data_lower
-    # fuse-overlayfs -o lowerdir={{root}}/pipeline-input-data_lower,\
-    #                   upperdir={{root}}/pipeline-input-data_upper,\
-    #                   workdir={{root}}/pipeline-input-data_working \
-    #                   {{root}}/pipeline-input-data
+    fuse-overlayfs -o lowerdir={{root}}/pipeline-input-data_lower,\
+                      upperdir={{root}}/pipeline-input-data_upper,\
+                      workdir={{root}}/pipeline-input-data_working \
+                      {{root}}/pipeline-input-data
     sudo mount -t overlay overlay -o lowerdir={{root}}/pipeline-input-data_lower,\
                       upperdir={{root}}/pipeline-input-data_upper,\
                       workdir={{root}}/pipeline-input-data_working \
                       {{root}}/pipeline-input-data
+
+runner:
+    kubectl -n kubeflow-jf exec -it deploy/pipeline-runner-pod -- env --chdir=/mnt/shared/users/jf/ SHELL=/bin/bash zellij attach --create
+
+
+[script('bun', 'run')]
+_get_runner_pod:
+    import { $ } from "bun";
+    const podResponse = await $`kubectl -n kubeflow-jf get pods -l app=pipeline-runner-pod -o json`.json()
+    const podName = podResponse?.items?.[0]?.metadata?.name
+    if (!podName) throw new Error('Pod not found')
+    console.log(podName)
+
+[script('bun', 'run')]
+copy-to-pod src dst pod=`just -f ~/.justfile _get_runner_pod`:
+    import { $ } from "bun";
+    await $`kubectl -n kubeflow-jf cp --no-preserve=true {{src}} {{pod}}:{{dst}}`
+
+watch-cp src dst app="pipeline-runner-pod" namespace="kubeflow-jf":
+    bun run ~/bin/ksync.mjs --src {{src}} --dst {{dst}} --app {{app}} --namespace {{namespace}}
