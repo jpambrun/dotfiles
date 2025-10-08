@@ -23,4 +23,3 @@ packages:
 - name: ClementTsang/bottom@0.11.1
 - name: duckdb/duckdb@v1.4.1
 - name: astral-sh/uv@0.9.0
-- name: cli/cli@v2.81.0
