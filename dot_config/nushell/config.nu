@@ -18,5 +18,6 @@
 # them for future reference.
 
 $env.config.history.file_format = "sqlite"
+$env.config.history.isolation = true
 $env.config.buffer_editor = "hx"
 $env.config.show_banner = false

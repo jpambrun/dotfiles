@@ -16,3 +16,11 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+
+$env.Path = ($env.Path | prepend '~/bin')
+$env.Path = ($env.Path | prepend '~/.npm-global/bin')
+$env.Path = ($env.Path | prepend '~/.local/share/aquaproj-aqua/bin')
+
+
+alias dwcrawl = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs
+alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs
