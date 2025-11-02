@@ -1,9 +1,5 @@
 [user]
-{{- if or (hasPrefix "AltisJF" .chezmoi.hostname)  (hasPrefix "C0" .chezmoi.hostname) }}
-  email = jf@altislabs.com
-{{- else }}
   email = jf.pambrun@gmail.com
-{{- end }}
   name = JF Pambrun
 
 [core]
@@ -18,7 +14,7 @@
 
 [merge]
   tool = meld
-  conflictstyle = diff3
+	conflictstyle = zdiff3
 
 [color]
   status = auto
@@ -39,6 +35,7 @@
 	ignored = !git ls-files -v | grep \"^S\"
 [push]
 	default = simple
+	autoSetupRemote = true
 [credential]
 	helper = store
 [diff "image"]
@@ -55,3 +52,16 @@
 [credential "https://gist.github.com"]
         helper =
         helper = !/usr/bin/gh auth git-credential
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[commit]
+	verbose = true

@@ -40,4 +40,3 @@ alias al="aws-vault exec jf --duration 12h -- bash"
 
 eval "$(just --completions bash)"
 
-. "$HOME/.cargo/env"
