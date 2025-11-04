@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
+export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
 alias ls='ls --color=auto'
 eval "$(starship init bash)"
 alias ls=exa
@@ -26,7 +27,7 @@ echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
 complete -C /home/jpambrun/bin/xc xc
 
-
+export AQUA_GLOBAL_CONFIG=~/.config/aquaproj-aqua/aqua.yaml
 export BROWSER=chrome
 
 export AWS_PAGER=""

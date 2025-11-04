@@ -3,7 +3,7 @@
   name = JF Pambrun
 
 [core]
-  editor = vim
+  editor = helix
   #pager = delta --light --line-numbers
 
 [interactive]
