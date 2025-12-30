@@ -10,7 +10,8 @@
   diffFilter = delta --color-only
 
 [delta]
-  theme = 'GitHub'
+  theme = 'gruvbox-light'
+  dark = false
 
 [merge]
   tool = meld
@@ -33,6 +34,10 @@
 	ignore = update-index --skip-worktree
 	unignore = update-index --no-skip-worktree
 	ignored = !git ls-files -v | grep \"^S\"
+  dlog = -c diff.external=difft log -p --ext-diff
+  dshow = -c diff.external=difft show --ext-diff
+  ddiff = -c diff.external=difft diff
+
 [push]
 	default = simple
 	autoSetupRemote = true

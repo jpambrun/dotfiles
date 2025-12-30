@@ -1,0 +1,4 @@
+git:
+  pagers:
+    - pager: delta --light --paging=never --true-color=always
+    - externalDiffCommand: difft --color=always
