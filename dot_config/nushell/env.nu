@@ -22,7 +22,3 @@ $env.Path = ($env.Path | prepend '~/bin')
 $env.Path = ($env.Path | prepend '~/.local/bin/')
 $env.Path = ($env.Path | prepend '~/.local/share/aquaproj-aqua/bin')
 $env.AQUA_GLOBAL_CONFIG = ($env.HOME | path join '.config/aquaproj-aqua/aqua.yaml')
-
-
-alias dwcrawl = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs
-alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs
