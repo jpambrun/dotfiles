@@ -31,15 +31,7 @@ disabled = true
 format = 'on [⛵$context \($namespace\)](dimmed green) '
 disabled = true
 
-[kubernetes.context_aliases]
-"gke_valid-octagon-285217_us-central1-f_vision-k8s" = "vision-poc"
-
 [aws]
-{{- if (hasPrefix "Altis" .chezmoi.hostname) }}
-disabled = false
-{{- else }}
-disabled = true
-{{- end }}
 [aws.region_aliases]
 us-east-1 = 'e1'
 us-east-2 = 'e2'

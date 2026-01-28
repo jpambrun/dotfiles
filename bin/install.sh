@@ -40,6 +40,8 @@ curl https://i.jpillora.com/runmedev/runme | bash
 curl https://i.jpillora.com/duckdb/duckdb | bash
 curl https://i.jpillora.com/astral-sh/uv?select=uv-x86_64-unknown-linux-musl | bash
 curl https://i.jpillora.com/sigoden/dufs?select=dufs-v0.43.0-x86_64-unknown-linux-musl | bash
+curl https://i.jpillora.com/docker/docker-credential-helpers?select='docker-credential-pass'&as=docker-credential-pass | bash
+curl https://i.jpillora.com/stacklok/toolhive | bash
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
 # mv /tmp/hx .
