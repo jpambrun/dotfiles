@@ -26,3 +26,5 @@ $env.config.show_banner = false
 # Aliases
 alias dwcrawl = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs
 alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs
+alias hx = helix
+alias lock = gpgconf --reload gpg-agent

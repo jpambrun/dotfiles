@@ -10,7 +10,8 @@ marimo:
 
 [working-directory: '.config/aquaproj-aqua']
 up:
-    aqua up
+    GITHUB_TOKEN=$(gh auth token) aqua up
+    aqua i
 
 [working-directory: '.config/aquaproj-aqua']
 add:

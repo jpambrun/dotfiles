@@ -42,6 +42,9 @@ curl https://i.jpillora.com/astral-sh/uv?select=uv-x86_64-unknown-linux-musl | b
 curl https://i.jpillora.com/sigoden/dufs?select=dufs-v0.43.0-x86_64-unknown-linux-musl | bash
 curl https://i.jpillora.com/docker/docker-credential-helpers?select='docker-credential-pass'&as=docker-credential-pass | bash
 curl https://i.jpillora.com/stacklok/toolhive | bash
+curl https://i.jpillora.com/surrealdb/surrealdb | bash
+curl https://i.jpillora.com/Ataraxy-Labs/weave | bash
+curl https://i.jpillora.com/ClementTsang/bottom | bash
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
 # mv /tmp/hx .

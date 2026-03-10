@@ -1,8 +1,32 @@
+[profile dev]
+credential_process = /home/jpambrun/bin/aws-pass-credential.ts dev
+region = us-east-1
+
+[profile staging]
+credential_process = /home/jpambrun/bin/aws-pass-credential.ts staging
+region = us-east-1
+
+[profile pre-prod]
+credential_process = /home/jpambrun/bin/aws-pass-credential.ts pre-prod
+region = us-east-1
+
+[profile preprod]
+credential_process = /home/jpambrun/bin/aws-pass-credential.ts pre-prod
+region = us-east-1
+
+[profile prod]
+credential_process = /home/jpambrun/bin/aws-pass-credential.ts prod
+region = us-east-1
+
+
+# [profile prod-login]
+# region = us-east-1
+# output = json
+# login_session = arn:aws:sts::654654348649:assumed-role/OrganizationAccountAccessRole/jf.pambrun@newvue.ai
+#
+# [profile prod]
+# credential_process = aws configure export-credentials --profile prod-login --format process
+# region = us-east-1
 [default]
-region=ca-central-1
-
-[profile ml-dev]
-region=ca-central-1
-mfa_serial=arn:aws:iam::876954890468:mfa/phone
-role_arn=arn:aws:iam::876954890468:role/rayserve_dev_access
-
+login_session = arn:aws:iam::459351503008:user/jf.pambrun@newvue.ai
+region = us-east-1
