@@ -1,0 +1,292 @@
+set $w1 1
+set $w2 2
+set $w3 3
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w10 10
+
+set $mod Mod4
+
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec wezterm
+
+# kill focused window
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+# Print screen
+#bindsym --release Print exec scrot -s -e 'mv $f /tmp/ && feh /tmp/$f'
+bindsym --release Print exec --no-startup-id scrot -s -e 'xclip -selection clipboard -t image/png -i $f'
+
+# switch to workspace
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w10
+#bindsym $mod+Tab workspace next
+#bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5
+bindsym $mod+Shift+6 move container to workspace $w6
+bindsym $mod+Shift+7 move container to workspace $w7
+bindsym $mod+Shift+8 move container to workspace $w8
+bindsym $mod+Shift+9 move container to workspace $w9
+bindsym $mod+Shift+0 move container to workspace $w10
+
+
+mode "resize" {
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+
+set $sysmenu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
+bindsym $mod+Delete      mode $sysmenu
+
+mode $sysmenu {
+    bindsym r         restart
+    bindsym l         exit
+    bindsym p         exec shutdown -P now
+    bindsym b         exec shutdown -r now
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
+set $wht #f8f8f2
+
+# class                 border    bground text      indicator child_border
+client.focused          $green    $base   $text     $lavender $lavender
+client.focused_inactive $surface2 $base   $subtext1 $sky      $surface2
+client.unfocused        $surface2 $base   $subtext1 $blue     $surface2
+client.urgent           $peach    $base   $crust    $red      $red
+client.placeholder      $surface1 $base   $text     $surface1 $surface1
+
+client.background       $base
+
+bar {
+#        mode hide
+#        hidden_state hide
+        modifier Mod4
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        #font pango:DejaVu Sans Mono 9
+        font pango:Overpass 12
+  colors {
+    background $base
+    statusline $text
+    separator  $base
+
+    focused_workspace  $base $mauve $crust
+    active_workspace   $base $surface2 $text
+    inactive_workspace $base $base $text
+    urgent_workspace   $base $red $crust
+    binding_mode       $base $peach $crust
+  }
+}
+focus_follows_mouse no
+
+exec dex -ae i3
+
+exec --no-startup-id feh --bg-fill ~/Pictures/bg2.jpg
+#exec --no-startup-id nm-applet
+#exec --no-startup-id ~/bin/autoHideOutOfWorkspace.py
+#exec --no-startup-id setxkbmap -option caps:none,grp:alt_shift_toggle,grp_led:caps us,ca
+
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+new_window pixel 5
+
+#bindsym $mod+equal exec --no-startup-id amixer -q set Master 2dB+ unmute && pkill -RTMIN+10 i3blocks
+#bindsym $mod+minus exec --no-startup-id amixer -q set Master 2dB- unmute && pkill -RTMIN+10 i3blocks
+#bindsym $mod+t exec --no-startup-id ~/bin/toggletouchpad.sh
+#bindsym $mod+u exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ca || setxkbmap us && pkill -RTMIN+1 i3blocks
+
+
+# WM_CLASS(STRING) = "instance", "class"
+# title is _NET_WM_NAME or WM_NAME
+#assign [class="(?i)chromium"] $w2
+#assign [class="chromium"] $w2
+# assign [class="Google-chrome"] $w1
+
+# for_window [title="TabCompletionPopup"] border none
+# for_window [title="Help on Selection"] border none
+for_window [class="(?i)wezterm"] border pixel 5
+for_window [class="org.wezfurlong.wezterm"] border pixel 5
+for_window [class="feh"] floating enable, border normal
+for_window [class="Display"] floating enable, border normal
+for_window [class="MPlayer"] floating enable, border normal
+for_window [class="Antidote"] floating enable
+# for_window [class="Chromium"] border none
+# for_window [class="Atom"] border none
+# for_window [class="Firefox"] border none
+# for_window [class="Subl3"] border none
+# for_window [class="Google-chrome"] border none
+# for_window [class="Code"] border none
+# for_window [class="firefox-developer"] border none
+for_window [title="Sublime Text"] border 1px
+for_window [class="Steam"] floating enable
+for_window [class="ImageJ"] floating enable, border normal
+for_window [window_role="pop-up"] floating enable
+
+exec zen-browser
+
+bindsym $mod+ctrl+l exec i3lock -n -d -c 111111
+
+# scratchpad
+for_window [instance="music.google.com"] floating enable, border 1pixel, resize set 1700 px 80 ppt, move position center, move to scratchpad, scratchpad show, scratchpad show
+bindsym $mod+bracketleft [instance="music.google.com"] scratchpad show
+exec --no-startup-id exec chromium --app=http://music.google.com
+
+for_window [class="Slack"] floating enable, border 1pixel, resize set 1700 px 80 ppt, move position center, move to scratchpad, scratchpad show, scratchpad show
+bindsym $mod+backslash [class="Slack"] scratchpad show
+exec --no-startup-id slack
+
+exec_always --no-startup-id sh -c 'pgrep -x picom >/dev/null || picom -b --config ~/.config/picom/picom.conf'
+gaps inner 10
+gaps outer 0
+smart_borders no_gaps
+smart_gaps on
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
+#bindsym XF86MonBrightnessUp exec light -A 3 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec light -U 3 # decrease screen brightness
+
+
+## from defatul
+exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id /usr/bin/dunst
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+t exec --no-startup-id rofi -show window
+# volume
+# use meta keys without showing osc
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+# use meta keys showing osc using dunst
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+
+# gradular volume control
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+
+# mute
+#bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && killall -USR1 i3blocks
+# use meta keys showing osc using dunst
+bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
+# mic mute toggle
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+
+# audio control
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# Above line will also work for pausing
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# toggle between audio devices for output
+# bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
+
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
