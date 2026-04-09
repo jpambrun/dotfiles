@@ -13,4 +13,5 @@ yay -S --needed \
   fwupd \
   helix \
   picom \
+  maim \
   xclip

@@ -59,7 +59,7 @@ bindsym $mod+z focus child
 
 # Print screen
 #bindsym --release Print exec scrot -s -e 'mv $f /tmp/ && feh /tmp/$f'
-bindsym --release Print exec --no-startup-id scrot -s -e 'xclip -selection clipboard -t image/png -i $f'
+bindsym --release Print exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -144,11 +144,11 @@ set $crust #11111b
 set $wht #f8f8f2
 
 # class                 border    bground text      indicator child_border
-client.focused          $green    $base   $text     $lavender $lavender
-client.focused_inactive $surface2 $base   $subtext1 $sky      $surface2
-client.unfocused        $surface2 $base   $subtext1 $blue     $surface2
-client.urgent           $peach    $base   $crust    $red      $red
-client.placeholder      $surface1 $base   $text     $surface1 $surface1
+client.focused          $lavender $base   $text     $yellow   $lavender
+client.focused_inactive $surface2 $base   $subtext1 $yellow   $surface2
+client.unfocused        $surface2 $base   $subtext1 $yellow   $surface2
+client.urgent           $red      $base   $crust    $yellow   $red
+client.placeholder      $surface1 $base   $text     $yellow   $surface1
 
 client.background       $base
 
@@ -182,7 +182,7 @@ exec --no-startup-id feh --bg-fill ~/Pictures/bg2.jpg
 
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-new_window pixel 5
+new_window pixel 3
 
 #bindsym $mod+equal exec --no-startup-id amixer -q set Master 2dB+ unmute && pkill -RTMIN+10 i3blocks
 #bindsym $mod+minus exec --no-startup-id amixer -q set Master 2dB- unmute && pkill -RTMIN+10 i3blocks
@@ -198,8 +198,8 @@ new_window pixel 5
 
 # for_window [title="TabCompletionPopup"] border none
 # for_window [title="Help on Selection"] border none
-for_window [class="(?i)wezterm"] border pixel 5
-for_window [class="org.wezfurlong.wezterm"] border pixel 5
+for_window [class="(?i)wezterm"] border pixel 3
+for_window [class="org.wezfurlong.wezterm"] border pixel 3
 for_window [class="feh"] floating enable, border normal
 for_window [class="Display"] floating enable, border normal
 for_window [class="MPlayer"] floating enable, border normal
@@ -230,7 +230,7 @@ bindsym $mod+backslash [class="Slack"] scratchpad show
 exec --no-startup-id slack
 
 exec_always --no-startup-id sh -c 'pgrep -x picom >/dev/null || picom -b --config ~/.config/picom/picom.conf'
-gaps inner 10
+gaps inner 4
 gaps outer 0
 smart_borders no_gaps
 smart_gaps on
@@ -286,7 +286,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # toggle between audio devices for output
-# bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
+bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/display-hotplug.sh
 
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
