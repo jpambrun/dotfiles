@@ -29,3 +29,32 @@ def --env aw [] {
   $env.AWS_PROFILE = $selected
   echo $"AWS profile set to: ($selected)"
 }
+
+def --env awmode [mode?: string] {
+  let current = if "AWS_ACCESS_LEVEL" in $env and (($env.AWS_ACCESS_LEVEL | str trim) != "") {
+    $env.AWS_ACCESS_LEVEL | str trim
+  } else {
+    "ro"
+  }
+
+  if ($mode | is-empty) {
+    echo $current
+    return
+  }
+
+  if $mode == "toggle" {
+    let next = if $current == "ro" { "admin" } else { "ro" }
+    $env.AWS_ACCESS_LEVEL = $next
+    echo $"AWS access level set to: ($next)"
+    return
+  }
+
+  if $mode == "ro" or $mode == "admin" {
+    $env.AWS_ACCESS_LEVEL = $mode
+    echo $"AWS access level set to: ($mode)"
+    return
+  }
+
+  print stderr "Usage: awmode [ro|admin|toggle]"
+  return 1
+}

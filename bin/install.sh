@@ -45,6 +45,7 @@ curl https://i.jpillora.com/stacklok/toolhive | bash
 curl https://i.jpillora.com/surrealdb/surrealdb | bash
 curl https://i.jpillora.com/Ataraxy-Labs/weave | bash
 curl https://i.jpillora.com/ClementTsang/bottom | bash
+curl https://i.jpillora.com/Jguer/yay | bash
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
 # mv /tmp/hx .

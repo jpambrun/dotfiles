@@ -28,3 +28,7 @@ alias dwcrawl = deno run -A https://raw.githubusercontent.com/jpambrun/local-dic
 alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs
 alias hx = helix
 alias lock = gpgconf --reload gpg-agent
+
+def --wrapped pi [...args] {
+  npx @mariozechner/pi-coding-agent ...$args
+}
