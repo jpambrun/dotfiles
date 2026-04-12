@@ -1,0 +1,47 @@
+ignore-selection-foreground-color = false
+margin = [0]
+
+[fonts]
+family = "MonaspiceNe Nerd Font"
+size = 11
+
+[navigation]
+mode = "Plain"
+hide-if-single = true
+
+[colors]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+cursor = "#f5e0dc"
+black = "#1e1e2e"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#cba6f7"
+cyan = "#94e2d5"
+white = "#bac2de"
+dim-black = "#6c7086"
+dim-red = "#eba0ac"
+dim-green = "#a6e3a1"
+dim-yellow = "#f9e2af"
+dim-blue = "#89b4fa"
+dim-magenta = "#cba6f7"
+dim-cyan = "#94e2d5"
+dim-white = "#a6adc8"
+light-black = "#7f849c"
+light-red = "#f38ba8"
+light-green = "#a6e3a1"
+light-yellow = "#f9e2af"
+light-blue = "#89b4fa"
+light-magenta = "#cba6f7"
+light-cyan = "#94e2d5"
+light-white = "#cdd6f4"
+selection-background = "#b4befe"
+selection-foreground = "#1e1e2e"
+tabs = "#6c7086"
+tabs-active = "#cdd6f4"
+bar = "#1e1e2e"
+tab-border = "#1e1e2e"
+split = "#585b70"
+split-active = "#b4befe"
