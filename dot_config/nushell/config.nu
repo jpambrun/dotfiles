@@ -29,6 +29,4 @@ alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dic
 alias hx = helix
 alias lock = gpgconf --reload gpg-agent
 
-def --wrapped pi [...args] {
-  npx @mariozechner/pi-coding-agent ...$args
-}
+

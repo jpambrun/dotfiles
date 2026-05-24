@@ -17,8 +17,8 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
-$env.Path = ($env.Path | append '~/.npm-global/bin')
+$env.Path = ($env.Path | prepend ($env.HOME | path join '.local' 'bin'))
+$env.Path = ($env.Path | prepend ($env.HOME | path join '.bun' 'bin'))
 $env.Path = ($env.Path | prepend '~/bin')
-$env.Path = ($env.Path | prepend '~/.local/bin/')
 $env.Path = ($env.Path | prepend '~/.local/share/aquaproj-aqua/bin')
 $env.AQUA_GLOBAL_CONFIG = ($env.HOME | path join '.config/aquaproj-aqua/aqua.yaml')

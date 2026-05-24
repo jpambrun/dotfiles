@@ -1,4 +1,10 @@
 {
-  "lastChangelogVersion": "0.66.1",
-  "theme": "catppuccin-mocha"
+  "lastChangelogVersion": "0.75.5",
+  "theme": "catppuccin-mocha",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4-mini",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:@mjakl/pi-kagi-api"
+  ]
 }
