@@ -8,6 +8,18 @@ Install the Sway desktop, Wayland utilities, monitor tools, and Handy paste supp
 sudo pacman -S --needed sway waybar wofi mako swaybg swayidle swaylock grim slurp wl-clipboard xdg-desktop-portal-wlr xorg-xwayland jq wdisplays nwg-displays kanshi wtype pavucontrol playerctl brightnessctl power-profiles-daemon
 ```
 
+Install GNOME Keyring and Seahorse for a FreeDesktop Secret Service provider and GUI manager:
+
+```nu
+sudo pacman -S --needed gnome-keyring seahorse
+```
+
+Start the Secret Service component from the Sway config after importing the user environment:
+
+```sway
+exec /usr/bin/gnome-keyring-daemon --start --components=secrets
+```
+
 Install Handy:
 
 ```nu
