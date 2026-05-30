@@ -3,9 +3,9 @@
   "position": "top",
   "height": 34,
   "spacing": 10,
-  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "network", "pulseaudio", "cpu", "memory", "disk", "battery", "custom/powerprofile", "custom/power"],
+  "modules-right": ["tray", "network", "pulseaudio", "cpu", "temperature", "memory", "disk", "custom/powerdraw", "battery", "custom/powerprofile", "custom/power"],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -13,6 +13,12 @@
   },
   "sway/mode": {
     "format": "{}"
+  },
+  "sway/scratchpad": {
+    "format": "scratch {count}",
+    "show-empty": false,
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
   },
   "clock": {
     "interval": 1,
@@ -42,6 +48,11 @@
     "interval": 2,
     "format": "mem {}%"
   },
+  "temperature": {
+    "interval": 5,
+    "critical-threshold": 80,
+    "format": "temp {temperatureC}C"
+  },
   "disk": {
     "interval": 30,
     "path": "/",
@@ -56,6 +67,11 @@
     "format": "bat {capacity}%",
     "format-charging": "bat {capacity}% charging",
     "format-plugged": "bat {capacity}% plugged"
+  },
+  "custom/powerdraw": {
+    "interval": 5,
+    "exec": "awk '{ printf \"draw %.1fW\", $1 / 1000000 }' /sys/class/power_supply/BAT0/power_now",
+    "tooltip": false
   },
   "custom/powerprofile": {
     "interval": 5,

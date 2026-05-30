@@ -74,11 +74,14 @@ window#waybar > box {
 #network,
 #pulseaudio,
 #cpu,
+#temperature,
 #memory,
 #disk,
+#custom-powerdraw,
 #battery,
 #custom-powerprofile,
 #custom-power,
+#scratchpad,
 #tray {
   background: alpha(@surface, 0.86);
   border: 1px solid alpha(@surface_hi, 0.75);
@@ -97,9 +100,21 @@ window#waybar > box {
 #network { color: @blue; }
 #pulseaudio { color: @mauve; }
 #cpu { color: @green; }
+#temperature { color: @yellow; }
 #memory { color: @peach; }
 #disk { color: @lavender; }
+#custom-powerdraw { color: @green; }
 #custom-powerprofile { color: @yellow; }
+
+#temperature.critical {
+  background: alpha(@red, 0.18);
+  border-color: alpha(@red, 0.55);
+  color: @red;
+}
+
+#scratchpad {
+  color: @lavender;
+}
 
 #battery.warning {
   background: alpha(@yellow, 0.16);
