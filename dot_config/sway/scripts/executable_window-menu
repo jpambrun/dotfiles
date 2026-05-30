@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+swaymsg -t get_tree \
+    | jq -r '.. | objects | select(.type? == "con" and .pid? != null and .name? != null) | [.id, .name] | @tsv' \
+    | wofi --dmenu --prompt Windows \
+    | awk '{print $1}' \
+    | xargs -r -I{} swaymsg '[con_id="{}"] focus'

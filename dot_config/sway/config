@@ -1,0 +1,191 @@
+set $mod Mod4
+set $term wezterm
+set $menu wofi --show drun
+
+set $w1 1
+set $w2 2
+set $w3 3
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w10 10
+
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
+
+floating_modifier $mod
+focus_follows_mouse no
+
+font pango:Overpass 12
+default_border pixel 3
+gaps inner 4
+gaps outer 0
+smart_borders no_gaps
+smart_gaps on
+
+client.focused          $lavender $base $text     $yellow $lavender
+client.focused_inactive $surface2 $base $subtext1 $yellow $surface2
+client.unfocused        $surface2 $base $subtext1 $yellow $surface2
+client.urgent           $red      $base $crust    $yellow $red
+client.placeholder      $surface1 $base $text     $yellow $surface1
+client.background       $base
+
+include ~/.config/sway/outputs
+output eDP-1 scale 1
+output * bg ~/Pictures/bg2.jpg fill
+
+bar {
+    swaybar_command waybar
+}
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec mako
+exec_always swayidle -w timeout 480 'swaylock -f -c 111111' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f -c 111111'
+exec dex -ae sway
+exec sh -c 'command -v zen-browser >/dev/null && exec zen-browser'
+exec sh -c 'command -v chromium >/dev/null && exec chromium --app=http://music.google.com'
+exec sh -c 'command -v slack >/dev/null && exec slack'
+exec sh -c 'command -v handy >/dev/null && { pgrep -xu "$USER" handy >/dev/null || exec handy --start-hidden; }'
+
+bindsym $mod+Return exec $term
+bindsym $mod+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+t exec ~/.config/sway/scripts/window-menu
+bindsym $mod+Shift+e exec ~/.config/sway/scripts/powermenu
+bindsym $mod+equal exec ~/.config/sway/scripts/scale-output increase
+bindsym $mod+minus exec ~/.config/sway/scripts/scale-output decrease
+bindsym --no-repeat Control+space exec pkill -USR2 -x handy
+bindsym --release Control+space exec pkill -USR2 -x handy
+bindsym --release Print exec grim -g "$(slurp)" - | wl-copy --type image/png
+bindsym $mod+ctrl+l exec swaylock -f -c 111111
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+g split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w10
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5
+bindsym $mod+Shift+6 move container to workspace $w6
+bindsym $mod+Shift+7 move container to workspace $w7
+bindsym $mod+Shift+8 move container to workspace $w8
+bindsym $mod+Shift+9 move container to workspace $w9
+bindsym $mod+Shift+0 move container to workspace $w10
+
+mode "resize" {
+    bindsym l resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym h resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+set $sysmenu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
+bindsym $mod+Delete mode $sysmenu
+mode $sysmenu {
+    bindsym r reload
+    bindsym l exit
+    bindsym p exec systemctl poweroff
+    bindsym b exec systemctl reboot
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volume_brightness.sh volume_down
+bindsym $mod+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym $mod+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute exec ~/.config/i3/scripts/volume_brightness.sh volume_mute
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/volume_brightness.sh brightness_down
+bindsym $mod+p exec ~/.config/sway/scripts/power-profiles
+
+for_window [app_id="org.wezfurlong.wezterm"] border pixel 3
+for_window [class="org.wezfurlong.wezterm"] border pixel 3
+for_window [class="Display"] floating enable, border normal
+for_window [class="MPlayer"] floating enable, border normal
+for_window [class="Antidote"] floating enable
+for_window [title="Sublime Text"] border pixel 1
+for_window [class="Steam"] floating enable
+for_window [class="ImageJ"] floating enable, border normal
+for_window [window_role="pop-up"] floating enable
+
+for_window [instance="music.google.com"] floating enable, border pixel 1, resize set 1700 px 80 ppt, move position center, move to scratchpad, scratchpad show, scratchpad show
+bindsym $mod+bracketleft [instance="music.google.com"] scratchpad show
+
+for_window [class="Slack"] floating enable, border pixel 1, resize set 1700 px 80 ppt, move position center, move to scratchpad, scratchpad show, scratchpad show
+bindsym $mod+backslash [class="Slack"] scratchpad show

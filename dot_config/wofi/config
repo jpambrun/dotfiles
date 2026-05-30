@@ -1,0 +1,9 @@
+show=drun
+allow_markup=true
+allow_images=true
+insensitive=true
+prompt=Run
+width=640
+height=420
+location=center
+matching=fuzzy

@@ -1,0 +1,38 @@
+window {
+  margin: 0;
+  border: 1px solid #89b4fa;
+  border-radius: 7px;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-family: Overpass, "Noto Sans", sans-serif;
+  font-size: 14px;
+}
+
+#input {
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid #585b70;
+  border-radius: 4px;
+  background-color: #181825;
+  color: #cdd6f4;
+}
+
+#inner-box,
+#outer-box,
+#scroll {
+  background-color: #1e1e2e;
+}
+
+#entry {
+  padding: 8px;
+  color: #cdd6f4;
+}
+
+#entry:selected {
+  background-color: #cba6f7;
+  color: #11111b;
+}
+
+#text:selected {
+  color: #11111b;
+}

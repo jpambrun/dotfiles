@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+max_desktops=20
+
+used="$(swaymsg -t get_workspaces | jq -r '.[].num')"
+for workspace in $(seq 1 "$max_desktops"); do
+    if ! grep -qx "$workspace" <<< "$used"; then
+        swaymsg workspace "$workspace"
+        exit 0
+    fi
+done

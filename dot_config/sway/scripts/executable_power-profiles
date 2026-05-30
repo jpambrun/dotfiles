@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+command -v powerprofilesctl >/dev/null 2>&1 || { echo "powerprofilesctl not found"; exit 1; }
+command -v wofi >/dev/null 2>&1 || { echo "wofi not found"; exit 1; }
+
+current_profile="$(powerprofilesctl get 2>/dev/null || true)"
+options=("Cancel")
+
+if powerprofilesctl list | grep -q "performance"; then
+    options+=("Performance")
+fi
+if powerprofilesctl list | grep -q "balanced"; then
+    options+=("Balanced")
+fi
+if powerprofilesctl list | grep -q "power-saver"; then
+    options+=("Power Saver")
+fi
+
+chosen="$(printf '%s\n' "${options[@]}" | wofi --dmenu --prompt "Profile: ${current_profile}")"
+
+case "$chosen" in
+    "Performance")
+        powerprofilesctl set performance
+        ;;
+    "Balanced")
+        powerprofilesctl set balanced
+        ;;
+    "Power Saver")
+        powerprofilesctl set power-saver
+        ;;
+    "Cancel"|"")
+        exit 0
+        ;;
+esac
+
+notify-send -i dialog-information "Power Profile Changed" "New profile: ${chosen}" || true

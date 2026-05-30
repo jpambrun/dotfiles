@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+direction="${1:-}"
+step="0.25"
+min_scale="0.5"
+max_scale="3"
+
+case "$direction" in
+    increase)
+        delta="$step"
+        ;;
+    decrease)
+        delta="-$step"
+        ;;
+    *)
+        echo "usage: $0 increase|decrease" >&2
+        exit 2
+        ;;
+esac
+
+output_json="$(swaymsg -t get_outputs)"
+output_name="$(
+    jq -r 'map(select(.focused == true))[0].name // map(select(.active == true))[0].name // empty' <<< "$output_json"
+)"
+
+if [[ -z "$output_name" ]]; then
+    output_name="eDP-1"
+fi
+
+current_scale="$(
+    jq -r --arg name "$output_name" '.[] | select(.name == $name) | .scale' <<< "$output_json"
+)"
+
+if [[ -z "$current_scale" || "$current_scale" == "null" ]]; then
+    current_scale="1"
+fi
+
+new_scale="$(
+    awk -v current="$current_scale" -v delta="$delta" -v min="$min_scale" -v max="$max_scale" 'BEGIN {
+        scale = current + delta
+        if (scale < min) scale = min
+        if (scale > max) scale = max
+        printf "%.2f", scale
+    }'
+)"
+
+swaymsg output "$output_name" scale "$new_scale"
+notify-send "Display scale" "${output_name}: ${new_scale}" || true

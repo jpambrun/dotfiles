@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cancel="Cancel"
+lock="Lock"
+logout="Logout"
+reboot="Reboot"
+shutdown="Shutdown"
+suspend="Suspend"
+hibernate="Hibernate"
+
+chosen="$(printf '%s\n' "$cancel" "$lock" "$logout" "$reboot" "$shutdown" "$suspend" "$hibernate" | wofi --dmenu --prompt 'Power Menu')"
+
+case "$chosen" in
+    "$lock")
+        swaylock -f -c 111111
+        ;;
+    "$logout")
+        swaymsg exit
+        ;;
+    "$reboot")
+        systemctl reboot
+        ;;
+    "$shutdown")
+        systemctl poweroff
+        ;;
+    "$suspend")
+        systemctl suspend
+        ;;
+    "$hibernate")
+        systemctl hibernate
+        ;;
+    "$cancel"|"")
+        exit 0
+        ;;
+esac
