@@ -1,36 +1,72 @@
+@define-color base #11111b;
+@define-color mantle #181825;
+@define-color surface #1e1e2e;
+@define-color surface_hi #313244;
+@define-color text #cdd6f4;
+@define-color muted #7f849c;
+@define-color lavender #b4befe;
+@define-color mauve #cba6f7;
+@define-color blue #89b4fa;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color peach #fab387;
+@define-color red #f38ba8;
+
 * {
   border: none;
   border-radius: 0;
   font-family: Overpass, "Noto Sans", sans-serif;
   font-size: 12px;
+  font-weight: 600;
   min-height: 0;
 }
 
 window#waybar {
-  background: #1e1e2e;
-  color: #cdd6f4;
+  background: @base;
+  color: @text;
+}
+
+window#waybar > box {
+  background: @base;
+  border-radius: 0;
+  padding: 4px 8px;
+}
+
+#workspaces {
+  background: alpha(@surface, 0.88);
+  border: 1px solid alpha(@surface_hi, 0.75);
+  border-radius: 13px;
+  padding: 2px;
 }
 
 #workspaces button {
-  color: #cdd6f4;
-  padding: 0 9px;
   background: transparent;
+  border-radius: 11px;
+  color: @muted;
+  margin: 0 1px;
+  padding: 0 9px;
+}
+
+#workspaces button:hover {
+  background: alpha(@surface_hi, 0.85);
+  color: @text;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background: #cba6f7;
-  color: #11111b;
+  background: linear-gradient(135deg, @mauve, @blue);
+  color: @base;
 }
 
 #workspaces button.urgent {
-  background: #f38ba8;
-  color: #11111b;
+  background: @red;
+  color: @base;
 }
 
 #mode {
-  background: #fab387;
-  color: #11111b;
+  background: @peach;
+  border-radius: 12px;
+  color: @base;
   padding: 0 10px;
 }
 
@@ -44,18 +80,60 @@ window#waybar {
 #custom-powerprofile,
 #custom-power,
 #tray {
-  padding: 0 8px;
-  color: #cdd6f4;
+  background: alpha(@surface, 0.86);
+  border: 1px solid alpha(@surface_hi, 0.75);
+  border-radius: 12px;
+  color: @text;
+  margin: 0 1px;
+  padding: 0 10px;
 }
 
+#clock {
+  background: linear-gradient(135deg, alpha(@mauve, 0.95), alpha(@blue, 0.95));
+  color: @base;
+  padding: 0 14px;
+}
+
+#network { color: @blue; }
+#pulseaudio { color: @mauve; }
+#cpu { color: @green; }
+#memory { color: @peach; }
+#disk { color: @lavender; }
+#custom-powerprofile { color: @yellow; }
+
 #battery.warning {
-  color: #f9e2af;
+  background: alpha(@yellow, 0.16);
+  border-color: alpha(@yellow, 0.45);
+  color: @yellow;
 }
 
 #battery.critical {
-  color: #f38ba8;
+  background: alpha(@red, 0.18);
+  border-color: alpha(@red, 0.55);
+  color: @red;
+}
+
+#battery.charging,
+#battery.plugged {
+  background: alpha(@green, 0.14);
+  border-color: alpha(@green, 0.42);
+  color: @green;
 }
 
 #custom-power {
-  background: #313244;
+  background: alpha(@red, 0.18);
+  border-color: alpha(@red, 0.42);
+  color: @red;
+  padding: 0 12px;
+}
+
+tooltip {
+  background: @surface;
+  border: 1px solid alpha(@lavender, 0.3);
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 6px;
 }

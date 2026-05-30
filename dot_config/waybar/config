@@ -1,27 +1,33 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
-  "spacing": 8,
+  "height": 34,
+  "spacing": 10,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["clock"],
   "modules-right": ["tray", "network", "pulseaudio", "cpu", "memory", "disk", "battery", "custom/powerprofile", "custom/power"],
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true
+    "all-outputs": true,
+    "format": "{name}"
   },
   "sway/mode": {
     "format": "{}"
   },
   "clock": {
     "interval": 1,
-    "format": "{:%a %d %b %H:%M:%S}"
+    "format": "{:%a %d %b  %H:%M:%S}",
+    "tooltip-format": "{:%A, %d %B %Y\nWeek %V}"
   },
   "network": {
-    "format-wifi": "{essid} {signalStrength}%",
-    "format-ethernet": "wired",
-    "format-disconnected": "offline",
+    "format-wifi": "net {essid} {signalStrength}%",
+    "format-ethernet": "net wired",
+    "format-disconnected": "net offline",
     "tooltip-format": "{ifname}: {ipaddr}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
   },
   "pulseaudio": {
     "format": "vol {volume}%",
@@ -43,6 +49,10 @@
   },
   "battery": {
     "interval": 30,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
     "format": "bat {capacity}%",
     "format-charging": "bat {capacity}% charging",
     "format-plugged": "bat {capacity}% plugged"
