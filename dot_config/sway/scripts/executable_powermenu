@@ -13,7 +13,7 @@ chosen="$(printf '%s\n' "$cancel" "$lock" "$logout" "$reboot" "$shutdown" "$susp
 
 case "$chosen" in
     "$lock")
-        swaylock -f -c 111111
+        swaylock -f -C ~/.config/swaylock/config
         ;;
     "$logout")
         swaymsg exit

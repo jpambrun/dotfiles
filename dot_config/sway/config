@@ -68,7 +68,7 @@ exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE SWAYSOCK DISPLAY
 exec /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec mako
-exec swayidle -w timeout 480 'swaylock -f -c 111111' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f -c 111111'
+exec swayidle -w timeout 480 'swaylock -f -C ~/.config/swaylock/config' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f -C ~/.config/swaylock/config'
 exec dex -ae sway
 exec sh -c 'command -v zen-browser >/dev/null && exec zen-browser'
 exec sh -c 'command -v handy >/dev/null && { pgrep -xu "$USER" handy >/dev/null || exec handy --start-hidden; }'
@@ -83,7 +83,7 @@ bindsym $mod+minus exec ~/.config/sway/scripts/scale-output decrease
 bindsym --no-repeat Control+space exec pkill -USR2 -x handy
 bindsym --release Control+space exec pkill -USR2 -x handy
 bindsym --release Print exec grim -g "$(slurp)" - | wl-copy --type image/png
-bindsym $mod+ctrl+l exec swaylock -f -c 111111
+bindsym $mod+ctrl+l exec swaylock -f -C ~/.config/swaylock/config
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
