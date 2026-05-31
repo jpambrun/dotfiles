@@ -5,7 +5,7 @@
   "spacing": 10,
   "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "network", "pulseaudio", "cpu", "temperature", "memory", "disk", "custom/powerdraw", "battery", "custom/powerprofile", "custom/power"],
+  "modules-right": ["tray", "network", "pulseaudio", "cpu", "temperature", "memory", "custom/powerdraw", "battery", "custom/powerprofile", "custom/power"],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -26,9 +26,9 @@
     "tooltip-format": "{:%A, %d %B %Y\nWeek %V}"
   },
   "network": {
-    "format-wifi": "net {essid} {signalStrength}%",
-    "format-ethernet": "net wired",
-    "format-disconnected": "net offline",
+    "format-wifi": "󰤨  {essid} {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
     "tooltip-format": "{ifname}: {ipaddr}"
   },
   "tray": {
@@ -36,27 +36,22 @@
     "spacing": 8
   },
   "pulseaudio": {
-    "format": "vol {volume}%",
-    "format-muted": "muted",
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰖁",
     "on-click": "pavucontrol"
   },
   "cpu": {
     "interval": 2,
-    "format": "cpu {usage}%"
+    "format": "󰻠 {usage}%"
   },
   "memory": {
     "interval": 2,
-    "format": "mem {}%"
+    "format": "󰍛 {}%"
   },
   "temperature": {
     "interval": 5,
     "critical-threshold": 80,
-    "format": "temp {temperatureC}C"
-  },
-  "disk": {
-    "interval": 30,
-    "path": "/",
-    "format": "disk {percentage_used}%"
+    "format": "󰔏 {temperatureC}°C"
   },
   "battery": {
     "interval": 30,
@@ -64,23 +59,23 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "bat {capacity}%",
-    "format-charging": "bat {capacity}% charging",
-    "format-plugged": "bat {capacity}% plugged"
+    "format": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%"
   },
   "custom/powerdraw": {
     "interval": 5,
-    "exec": "awk '{ printf \"draw %.1fW\", $1 / 1000000 }' /sys/class/power_supply/BAT0/power_now",
+    "exec": "awk '{ printf \"󱐋 %.1fW\", $1 / 1000000 }' /sys/class/power_supply/BAT0/power_now",
     "tooltip": false
   },
   "custom/powerprofile": {
     "interval": 5,
-    "exec": "powerprofilesctl get 2>/dev/null || true",
-    "format": "profile {}",
+    "exec": "sh -c 'case $(powerprofilesctl get 2>/dev/null) in performance) printf \"󰓅\" ;; balanced) printf \"󰾅\" ;; power-saver) printf \"󰌪\" ;; esac'",
+    "format": "{}",
     "on-click": "~/.config/sway/scripts/power-profiles"
   },
   "custom/power": {
-    "format": "power",
+    "format": "󰐥",
     "on-click": "~/.config/sway/scripts/powermenu"
   }
 }

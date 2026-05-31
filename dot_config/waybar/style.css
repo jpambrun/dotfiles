@@ -15,7 +15,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Overpass, "Noto Sans", sans-serif;
+  font-family: Overpass, "Symbols Nerd Font", "Noto Sans", sans-serif;
   font-size: 12px;
   font-weight: 600;
   min-height: 0;
@@ -76,7 +76,6 @@ window#waybar > box {
 #cpu,
 #temperature,
 #memory,
-#disk,
 #custom-powerdraw,
 #battery,
 #custom-powerprofile,
@@ -102,9 +101,14 @@ window#waybar > box {
 #cpu { color: @green; }
 #temperature { color: @yellow; }
 #memory { color: @peach; }
-#disk { color: @lavender; }
 #custom-powerdraw { color: @green; }
 #custom-powerprofile { color: @yellow; }
+
+#custom-powerprofile,
+#custom-power {
+  min-width: 18px;
+  padding: 0 10px;
+}
 
 #temperature.critical {
   background: alpha(@red, 0.18);
@@ -139,7 +143,6 @@ window#waybar > box {
   background: alpha(@red, 0.18);
   border-color: alpha(@red, 0.42);
   color: @red;
-  padding: 0 12px;
 }
 
 tooltip {

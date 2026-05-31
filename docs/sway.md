@@ -5,7 +5,7 @@
 Install the Sway desktop, Wayland utilities, monitor tools, and Handy paste support:
 
 ```nu
-sudo pacman -S --needed sway waybar wofi mako swaybg swayidle swaylock grim slurp wl-clipboard xdg-desktop-portal-wlr xorg-xwayland jq wdisplays nwg-displays kanshi wtype pavucontrol playerctl brightnessctl power-profiles-daemon
+sudo pacman -S --needed sway waybar wofi mako swaybg swayidle swaylock grim slurp wl-clipboard xdg-desktop-portal-wlr xorg-xwayland jq wdisplays nwg-displays kanshi wtype pavucontrol playerctl brightnessctl power-profiles-daemon ttf-nerd-fonts-symbols
 ```
 
 Install GNOME Keyring and Seahorse for a FreeDesktop Secret Service provider and GUI manager:
