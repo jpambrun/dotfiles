@@ -31,6 +31,7 @@ export AQUA_GLOBAL_CONFIG=~/.config/aquaproj-aqua/aqua.yaml
 export BROWSER=chrome
 
 export AWS_PAGER=""
+export AWS_PROFILE=dev
 
 alias akubectl="aws-vault exec jf --duration 12h -- kubectl"
 alias ak9s="aws-vault exec jf --duration 12h -- k9s"
