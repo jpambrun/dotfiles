@@ -1,10 +1,22 @@
 {
-  "lastChangelogVersion": "0.75.5",
+  "lastChangelogVersion": "0.79.8",
   "theme": "catppuccin-mocha",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4-mini",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
   "packages": [
-    "npm:@mjakl/pi-kagi-api"
+    "npm:@mjakl/pi-kagi-api",
+    "npm:@ff-labs/pi-fff",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-btw",
+    "npm:pi-better-openai",
+    "npm:pi-codex-search"
+  ],
+  "enabledModels": [
+    "openai-codex/gpt-5.4",
+    "openai-codex/gpt-5.3-codex-spark",
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-5.4-mini"
   ]
 }

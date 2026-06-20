@@ -22,3 +22,10 @@ $env.Path = ($env.Path | prepend ($env.HOME | path join '.bun' 'bin'))
 $env.Path = ($env.Path | prepend '~/bin')
 $env.Path = ($env.Path | prepend '~/.local/share/aquaproj-aqua/bin')
 $env.AQUA_GLOBAL_CONFIG = ($env.HOME | path join '.config/aquaproj-aqua/aqua.yaml')
+
+$env.AWS_PROFILE = ($env.AWS_PROFILE? | default 'dev')
+
+let secret_file = ($nu.default-config-dir | path join 'secret.toml')
+if ($secret_file | path exists) {
+    load-env (open $secret_file)
+}

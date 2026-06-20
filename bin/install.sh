@@ -44,8 +44,14 @@ curl https://i.jpillora.com/docker/docker-credential-helpers?select='docker-cred
 curl https://i.jpillora.com/stacklok/toolhive | bash
 curl https://i.jpillora.com/surrealdb/surrealdb | bash
 curl https://i.jpillora.com/Ataraxy-Labs/weave | bash
+curl https://i.jpillora.com/Ataraxy-Labs/weave?select=weave-driver&as=weave-driver | bash
 curl https://i.jpillora.com/ClementTsang/bottom | bash
 curl https://i.jpillora.com/Jguer/yay | bash
+curl https://i.jpillora.com/open-cli-collective/atlassian-cli?select=jtk&as=jtk | bash
+curl https://i.jpillora.com/open-cli-collective/atlassian-cli?select=cfl&as=cfl | bash
+curl https://i.jpillora.com/chronologos/lightjj
+curl https://i.jpillora.com/dmtrKovalenko/fff?select=fff-mcp-x86_64-unknown-linux-musl&as=fff-mcp | bash
+curl https://i.jpillora.com/zzet/gortex | bash
 
 # curl -L https://github.com/helix-editor/helix/releases/download/22.12/helix-22.12-x86_64-linux.tar.xz | tar xJf - --strip-components=1 -C /tmp
 # mv /tmp/hx .
