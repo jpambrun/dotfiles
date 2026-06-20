@@ -1,2 +1,2 @@
 #! /bin/bash
-T3CODE_TELEMETRY_ENABLED=false npx t3 serve --no-browser --mode desktop
+T3CODE_TELEMETRY_ENABLED=false npx t3 --no-browser --mode desktop

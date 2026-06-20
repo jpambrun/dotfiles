@@ -44,7 +44,6 @@ curl https://i.jpillora.com/docker/docker-credential-helpers?select='docker-cred
 curl https://i.jpillora.com/stacklok/toolhive | bash
 curl https://i.jpillora.com/surrealdb/surrealdb | bash
 curl https://i.jpillora.com/Ataraxy-Labs/weave | bash
-curl https://i.jpillora.com/Ataraxy-Labs/weave?select=weave-driver&as=weave-driver | bash
 curl https://i.jpillora.com/ClementTsang/bottom | bash
 curl https://i.jpillora.com/Jguer/yay | bash
 
