@@ -1,0 +1,296 @@
+{
+  "packages": [
+    {
+      "repo": "abiosoft/colima",
+      "version": "v0.10.3"
+    },
+    {
+      "repo": "alexpasmantier/television",
+      "version": "0.15.9"
+    },
+    {
+      "repo": "amir20/dtop",
+      "version": "v0.7.7"
+    },
+    {
+      "repo": "antonmedv/fx",
+      "version": "39.2.0"
+    },
+    {
+      "repo": "ast-grep/ast-grep",
+      "version": "0.43.0"
+    },
+    {
+      "repo": "astral-sh/uv",
+      "version": "0.11.23",
+      "select": "uv-x86_64-unknown-linux-musl"
+    },
+    {
+      "repo": "Ataraxy-Labs/weave",
+      "version": "v0.3.6"
+    },
+    {
+      "repo": "Ataraxy-Labs/weave",
+      "version": "v0.3.6",
+      "name": "weave-driver",
+      "select": "weave-driver"
+    },
+    {
+      "repo": "biomejs/biome",
+      "version": "biomejs/biome@2.5.0"
+    },
+    {
+      "repo": "blopker/codebook",
+      "version": "v0.3.41"
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "version": "15.1.0"
+    },
+    {
+      "repo": "Byron/dua-cli",
+      "version": "v2.36.0"
+    },
+    {
+      "repo": "ByteNess/aws-vault",
+      "version": "v7.12.3"
+    },
+    {
+      "repo": "caddyserver/caddy",
+      "version": "v2.11.4"
+    },
+    {
+      "repo": "Canop/broot",
+      "version": "v1.57.0"
+    },
+    {
+      "repo": "cantino/mcfly",
+      "version": "v0.9.4"
+    },
+    {
+      "repo": "carvel-dev/ytt",
+      "version": "v0.55.1"
+    },
+    {
+      "repo": "casey/just",
+      "version": "1.53.0"
+    },
+    {
+      "repo": "charmbracelet/glow",
+      "version": "v2.1.2"
+    },
+    {
+      "repo": "charmbracelet/gum",
+      "version": "v0.17.0"
+    },
+    {
+      "repo": "charmbracelet/mods",
+      "version": "v1.8.1"
+    },
+    {
+      "repo": "chmln/sd",
+      "version": "v1.1.0"
+    },
+    {
+      "repo": "chronologos/lightjj",
+      "version": "v1.33.0"
+    },
+    {
+      "repo": "ClementTsang/bottom",
+      "version": "0.14.0",
+      "select": "x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+      "repo": "dandavison/delta",
+      "version": "0.19.2"
+    },
+    {
+      "repo": "denoland/deno",
+      "version": "v2.8.3"
+    },
+    {
+      "repo": "derailed/k9s",
+      "version": "v0.51.0"
+    },
+    {
+      "repo": "devspace-sh/devspace",
+      "version": "v6.3.21"
+    },
+    {
+      "repo": "dmtrKovalenko/fff",
+      "version": "0.9.6-nightly.797c045",
+      "name": "fff-mcp",
+      "select": "fff-mcp-x86_64-unknown-linux-musl"
+    },
+    {
+      "repo": "docker/docker-credential-helpers",
+      "version": "v0.9.8",
+      "select": "docker-credential-pass"
+    },
+    {
+      "repo": "duckdb/duckdb",
+      "version": "v1.5.4"
+    },
+    {
+      "repo": "F1bonacc1/process-compose",
+      "version": "v1.116.0"
+    },
+    {
+      "repo": "grafana/k6",
+      "version": "v2.0.0"
+    },
+    {
+      "repo": "Jguer/yay",
+      "version": "v13.0.1"
+    },
+    {
+      "repo": "joerdav/xc",
+      "version": "v0.9.0"
+    },
+    {
+      "repo": "junegunn/fzf",
+      "version": "v0.73.1"
+    },
+    {
+      "repo": "k1LoW/mo",
+      "version": "v1.6.0"
+    },
+    {
+      "repo": "keidarcy/e1s",
+      "version": "v2.0.0-rc.4"
+    },
+    {
+      "repo": "mfontanini/presenterm",
+      "version": "v0.16.1"
+    },
+    {
+      "repo": "multiprocessio/dsq",
+      "version": "v0.23.0"
+    },
+    {
+      "repo": "mutagen-io/mutagen-compose",
+      "version": "v0.18.1"
+    },
+    {
+      "repo": "nats-io/natscli",
+      "version": "v0.4.0"
+    },
+    {
+      "repo": "ogham/exa",
+      "version": "v0.10.1"
+    },
+    {
+      "repo": "open-cli-collective/atlassian-cli",
+      "version": "cfl-v1.2.61",
+      "name": "cfl",
+      "select": "cfl"
+    },
+    {
+      "repo": "open-cli-collective/atlassian-cli",
+      "version": "jtk-v1.2.133",
+      "name": "jtk",
+      "select": "jtk"
+    },
+    {
+      "repo": "openai/codex",
+      "version": "rust-v0.141.0"
+    },
+    {
+      "repo": "Orange-OpenSource/hurl",
+      "version": "8.0.1"
+    },
+    {
+      "repo": "oven-sh/bun",
+      "version": "bun-v1.3.14"
+    },
+    {
+      "repo": "oxyno-zeta/s3-proxy",
+      "version": "v5.1.0"
+    },
+    {
+      "repo": "pnpm/pnpm",
+      "version": "v11.8.0"
+    },
+    {
+      "repo": "raaymax/lazytail",
+      "version": "v0.10.0"
+    },
+    {
+      "repo": "runmedev/runme",
+      "version": "v3.16.11"
+    },
+    {
+      "repo": "sachaos/viddy",
+      "version": "v1.3.1"
+    },
+    {
+      "repo": "Schniz/fnm",
+      "version": "v1.39.0"
+    },
+    {
+      "repo": "sharkdp/bat",
+      "version": "v0.26.1"
+    },
+    {
+      "repo": "sharkdp/fd",
+      "version": "v10.4.2"
+    },
+    {
+      "repo": "sigoden/aichat",
+      "version": "v0.30.0"
+    },
+    {
+      "repo": "sigoden/dufs",
+      "version": "v0.43.0",
+      "select": "dufs-v0.43.0-x86_64-unknown-linux-musl"
+    },
+    {
+      "repo": "sosedoff/pgweb",
+      "version": "v0.17.0"
+    },
+    {
+      "repo": "sst/opencode",
+      "version": "v1.17.8"
+    },
+    {
+      "repo": "stacklok/toolhive",
+      "version": "v0.30.0"
+    },
+    {
+      "repo": "starship/starship",
+      "version": "v1.25.1"
+    },
+    {
+      "repo": "steveyegge/beads",
+      "version": "v1.0.4"
+    },
+    {
+      "repo": "surrealdb/surrealdb",
+      "version": "v3.1.5"
+    },
+    {
+      "repo": "TomWright/dasel",
+      "version": "v3.11.1"
+    },
+    {
+      "repo": "twpayne/chezmoi",
+      "version": "v2.70.5"
+    },
+    {
+      "repo": "watchexec/watchexec",
+      "version": "v2.5.1"
+    },
+    {
+      "repo": "Wilfred/difftastic",
+      "version": "0.69.0"
+    },
+    {
+      "repo": "zellij-org/zellij",
+      "version": "v0.44.3"
+    },
+    {
+      "repo": "zzet/gortex",
+      "version": "v0.50.0"
+    }
+  ]
+}
