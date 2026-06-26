@@ -5,38 +5,176 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
-alias ls='ls --color=auto'
-eval "$(starship init bash)"
-alias ls=exa
-alias hx=helix
-alias ll="exa -la --git"
-eval "$(mcfly init bash)"
-export COLORTERM=truecolor
-export EDITOR=helix
+export FNM_DIR="$HOME/.local/share/fnm"
+export PATH="$FNM_DIR/aliases/default/bin:$HOME/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
+export ATLASSIAN_CLI_KEYRING_BACKEND=pass
 
-alias clip=clip.exe
+if command -v gpg-connect-agent >/dev/null 2>&1 && GPG_TTY=$(tty 2>/dev/null); then
+    export GPG_TTY
+    gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+fi
+
+if [[ -f "$HOME/.config/nushell/secret.toml" ]] && command -v python3 >/dev/null 2>&1; then
+    eval "$(SECRET_TOML="$HOME/.config/nushell/secret.toml" python3 - <<'PY'
+import os
+import re
+import shlex
+import sys
+
+try:
+    import tomllib
+except ModuleNotFoundError:
+    sys.exit(0)
+
+with open(os.environ["SECRET_TOML"], "rb") as file:
+    data = tomllib.load(file)
+
+for key, value in data.items():
+    if re.match(r"^[A-Za-z_][A-Za-z0-9_]*$", key) and isinstance(value, (str, int, float, bool)):
+        print(f"export {key}={shlex.quote(str(value))}")
+PY
+)"
+fi
+
+alias ls='ls --color=auto'
+
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+fi
+
+if command -v exa >/dev/null 2>&1; then
+    alias ls=exa
+    alias ll="exa -la --git"
+else
+    alias ll="ls -la"
+fi
+
+if command -v helix >/dev/null 2>&1; then
+    alias hx=helix
+    export EDITOR=helix
+fi
+
+if command -v gpgconf >/dev/null 2>&1; then
+    alias lock='gpgconf --reload gpg-agent'
+fi
+
+if command -v deno >/dev/null 2>&1; then
+    alias dwcrawl='deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs'
+    alias dwserve='deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs'
+fi
+
+if command -v mcfly >/dev/null 2>&1; then
+    eval "$(mcfly init bash)"
+fi
+
+export COLORTERM=truecolor
+
+if command -v clip.exe >/dev/null 2>&1; then
+    alias clip=clip.exe
+fi
+
 paste() {
+    if ! command -v powershell.exe >/dev/null 2>&1; then
+        echo "powershell.exe is required for paste" >&2
+        return 127
+    fi
+
     powershell.exe Get-Clipboard | sed 's/\r//'
 }
 
-alias aied="paste | aichat -r text"
+if command -v aichat >/dev/null 2>&1; then
+    alias aied="paste | aichat -r text"
+fi
 
 echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
-complete -C /home/jpambrun/bin/xc xc
+if [[ -x /home/jpambrun/bin/xc ]]; then
+    complete -C /home/jpambrun/bin/xc xc
+fi
 
-export BROWSER=chrome
+if command -v chrome >/dev/null 2>&1; then
+    export BROWSER=chrome
+fi
 
 export AWS_PAGER=""
-export AWS_PROFILE=dev
+export AWS_PROFILE="${AWS_PROFILE:-dev}"
 
-alias akubectl="aws-vault exec jf --duration 12h -- kubectl"
-alias ak9s="aws-vault exec jf --duration 12h -- k9s"
+if command -v aws-vault >/dev/null 2>&1; then
+    command -v kubectl >/dev/null 2>&1 && alias akubectl="aws-vault exec jf --duration 12h -- kubectl"
+    command -v k9s >/dev/null 2>&1 && alias ak9s="aws-vault exec jf --duration 12h -- k9s"
+    alias al="aws-vault exec jf --duration 12h -- bash"
+fi
 
-export KUBECTL_EXTERNAL_DIFF="delta"
+if command -v delta >/dev/null 2>&1; then
+    export KUBECTL_EXTERNAL_DIFF="delta"
+fi
 
-alias al="aws-vault exec jf --duration 12h -- bash"
+aw() {
+    if ! command -v gum >/dev/null 2>&1; then
+        echo "gum is required for this function. Please install it first (e.g., via your package manager)."
+        return
+    fi
 
-eval "$(just --completions bash)"
+    if ! command -v awk >/dev/null 2>&1; then
+        echo "awk is required for this function. Please install it first (e.g., via your package manager)."
+        return
+    fi
+
+    local config_path="$HOME/.aws/config"
+    if [[ ! -f "$config_path" ]]; then
+        echo "AWS config file not found at $config_path"
+        return
+    fi
+
+    local profiles=()
+    mapfile -t profiles < <(awk '
+        /^\[default\]$/ { print "default" }
+        /^\[profile / { sub(/^\[profile /, ""); sub(/\]$/, ""); print }
+    ' "$config_path")
+
+    if ((${#profiles[@]} == 0)); then
+        echo "No AWS profiles found in config"
+        return
+    fi
+
+    local selected
+    selected=$(gum choose --no-show-help --header "Select AWS Profile:" "${profiles[@]}") || return
+    selected=${selected//$'\r'/}
+    selected=${selected//$'\n'/}
+
+    export AWS_PROFILE="$selected"
+    echo "AWS profile set to: $selected"
+}
+
+awmode() {
+    local current="${AWS_ACCESS_LEVEL:-ro}"
+
+    if [[ -z "${1:-}" ]]; then
+        echo "$current"
+        return
+    fi
+
+    case "$1" in
+        toggle)
+            if [[ "$current" == "ro" ]]; then
+                export AWS_ACCESS_LEVEL=admin
+            else
+                export AWS_ACCESS_LEVEL=ro
+            fi
+            echo "AWS access level set to: $AWS_ACCESS_LEVEL"
+            ;;
+        ro|admin)
+            export AWS_ACCESS_LEVEL="$1"
+            echo "AWS access level set to: $AWS_ACCESS_LEVEL"
+            ;;
+        *)
+            echo "Usage: awmode [ro|admin|toggle]" >&2
+            return 1
+            ;;
+    esac
+}
+
+if command -v just >/dev/null 2>&1; then
+    eval "$(just --completions bash)"
+fi
 

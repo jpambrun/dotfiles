@@ -18,11 +18,11 @@
     },
     {
       "repo": "ast-grep/ast-grep",
-      "version": "0.43.0"
+      "version": "0.44.0"
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.11.23",
+      "version": "0.11.24",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "repo": "biomejs/biome",
-      "version": "biomejs/biome@2.5.0"
+      "version": "@biomejs/biome@2.5.1"
     },
     {
       "repo": "blopker/codebook",
@@ -49,7 +49,7 @@
     },
     {
       "repo": "Byron/dua-cli",
-      "version": "v2.36.0"
+      "version": "v2.37.0"
     },
     {
       "repo": "ByteNess/aws-vault",
@@ -73,7 +73,7 @@
     },
     {
       "repo": "casey/just",
-      "version": "1.53.0"
+      "version": "1.54.0"
     },
     {
       "repo": "charmbracelet/glow",
@@ -97,7 +97,7 @@
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "0.14.0",
+      "version": "nightly-ea24ae66-1782263505",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "repo": "denoland/deno",
-      "version": "v2.8.3"
+      "version": "v2.9.0"
     },
     {
       "repo": "derailed/k9s",
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.9.6-nightly.797c045",
+      "version": "0.9.7-nightly.957f222",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -153,15 +153,19 @@
     },
     {
       "repo": "k1LoW/mo",
-      "version": "v1.6.0"
+      "version": "v1.6.3"
     },
     {
       "repo": "keidarcy/e1s",
-      "version": "v2.0.0-rc.4"
+      "version": "v2.0.0-rc.5"
     },
     {
       "repo": "mfontanini/presenterm",
       "version": "v0.16.1"
+    },
+    {
+      "repo": "modem-dev/hunk",
+      "version": "v0.16.0"
     },
     {
       "repo": "multiprocessio/dsq",
@@ -181,19 +185,19 @@
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "cfl-v1.2.61",
+      "version": "cfl-v1.3.74",
       "name": "cfl",
       "select": "cfl"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "jtk-v1.2.133",
+      "version": "jtk-v1.3.148",
       "name": "jtk",
       "select": "jtk"
     },
     {
       "repo": "openai/codex",
-      "version": "rust-v0.141.0"
+      "version": "rust-v0.142.2"
     },
     {
       "repo": "Orange-OpenSource/hurl",
@@ -209,7 +213,7 @@
     },
     {
       "repo": "pnpm/pnpm",
-      "version": "v11.8.0"
+      "version": "v11.9.0"
     },
     {
       "repo": "raaymax/lazytail",
@@ -217,7 +221,7 @@
     },
     {
       "repo": "runmedev/runme",
-      "version": "v3.16.11"
+      "version": "v3.16.16"
     },
     {
       "repo": "sachaos/viddy",
@@ -250,11 +254,11 @@
     },
     {
       "repo": "sst/opencode",
-      "version": "v1.17.8"
+      "version": "v1.17.11"
     },
     {
       "repo": "stacklok/toolhive",
-      "version": "v0.30.0"
+      "version": "v0.31.0"
     },
     {
       "repo": "starship/starship",
@@ -290,7 +294,7 @@
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.50.0"
+      "version": "v0.52.2"
     }
   ]
 }

@@ -2,16 +2,11 @@
 
 Follow YAGNI principles, and one-liner solutions.
 
-## Shell preference
-
-The user primarily uses Nushell (`nu`).
-- When giving commands to the user, write them in Nushell syntax.
-- When running commands yourself, prefer Nushell-compatible syntax where practical.
-
 ## Version control
 
 - The user uses GitLab.
 - If asked to create or manage a merge request, prefer the `glab` CLI.
+- When replying to merge request comments, reply to each comment thread individually instead of posting a single combined comment.
 - When proposing a new branch name, prefer the `jpambrun/...` prefix unless the user asks otherwise.
 
 ## GitButler awareness

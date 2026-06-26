@@ -1,0 +1,8 @@
+[colors.menubar]
+bg = "DarkGrey"
+fg = "Black"
+
+[colors.darkmode]
+results_selection_fg = "Black"
+results_selection_bg = "White"
+results_selection_hl = "Black"
