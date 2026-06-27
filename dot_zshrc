@@ -1,0 +1,190 @@
+# ~/.zshrc
+
+# Paths
+export FNM_DIR="$HOME/.local/share/fnm"
+typeset -U path PATH
+path=(
+    "$FNM_DIR/aliases/default/bin"
+    "$HOME/bin"
+    "$HOME/.bun/bin"
+    "$HOME/.local/bin"
+    "$HOME/.npm-global/bin"
+    $path
+)
+
+export ATLASSIAN_CLI_KEYRING_BACKEND=pass
+export COLORTERM=truecolor
+export AWS_PAGER=""
+export AWS_PROFILE="${AWS_PROFILE:-dev}"
+
+# Let GPG/pass prompt correctly in interactive shells.
+if command -v gpg-connect-agent >/dev/null 2>&1 && GPG_TTY=$(tty 2>/dev/null); then
+    export GPG_TTY
+    gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+fi
+
+# Load simple KEY=value secrets from the Nushell secret file.
+if [[ -f "$HOME/.config/nushell/secret.toml" ]] && command -v python3 >/dev/null 2>&1; then
+    eval "$(SECRET_TOML="$HOME/.config/nushell/secret.toml" python3 - <<'PY'
+import os
+import re
+import shlex
+import sys
+
+try:
+    import tomllib
+except ModuleNotFoundError:
+    sys.exit(0)
+
+with open(os.environ["SECRET_TOML"], "rb") as file:
+    data = tomllib.load(file)
+
+for key, value in data.items():
+    if re.match(r"^[A-Za-z_][A-Za-z0-9_]*$", key) and isinstance(value, (str, int, float, bool)):
+        print(f"export {key}={shlex.quote(str(value))}")
+PY
+)"
+fi
+
+# Completion support
+autoload -Uz compinit
+compinit -i
+
+# Prompt/history integrations
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
+
+if command -v mcfly >/dev/null 2>&1; then
+    eval "$(mcfly init zsh)"
+fi
+
+# Aliases
+if command -v exa >/dev/null 2>&1; then
+    alias ls=exa
+    alias ll='exa -la --git'
+else
+    ls --color=auto >/dev/null 2>&1 && alias ls='ls --color=auto'
+    alias ll='ls -la'
+fi
+
+if command -v helix >/dev/null 2>&1; then
+    alias hx=helix
+    export EDITOR=helix
+fi
+
+if command -v gpgconf >/dev/null 2>&1; then
+    alias lock='gpgconf --reload gpg-agent'
+fi
+
+if command -v deno >/dev/null 2>&1; then
+    alias dwcrawl='deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs'
+    alias dwserve='deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs'
+fi
+
+if command -v clip.exe >/dev/null 2>&1; then
+    alias clip=clip.exe
+fi
+
+paste() {
+    if ! command -v powershell.exe >/dev/null 2>&1; then
+        echo "powershell.exe is required for paste" >&2
+        return 127
+    fi
+
+    powershell.exe Get-Clipboard | sed 's/\r//'
+}
+
+if command -v aichat >/dev/null 2>&1; then
+    alias aied='paste | aichat -r text'
+fi
+
+if command -v chrome >/dev/null 2>&1; then
+    export BROWSER=chrome
+fi
+
+if command -v aws-vault >/dev/null 2>&1; then
+    command -v kubectl >/dev/null 2>&1 && alias akubectl='aws-vault exec jf --duration 12h -- kubectl'
+    command -v k9s >/dev/null 2>&1 && alias ak9s='aws-vault exec jf --duration 12h -- k9s'
+    alias al='aws-vault exec jf --duration 12h -- zsh'
+fi
+
+if command -v delta >/dev/null 2>&1; then
+    export KUBECTL_EXTERNAL_DIFF=delta
+fi
+
+# Bash-style completion for xc, if present.
+if [[ -x /home/jpambrun/bin/xc ]]; then
+    autoload -Uz bashcompinit
+    bashcompinit
+    complete -C /home/jpambrun/bin/xc xc
+fi
+
+if command -v just >/dev/null 2>&1; then
+    eval "$(just --completions zsh)"
+fi
+
+aw() {
+    if ! command -v gum >/dev/null 2>&1; then
+        echo "gum is required for this function. Please install it first (e.g., via your package manager)."
+        return 1
+    fi
+
+    if ! command -v awk >/dev/null 2>&1; then
+        echo "awk is required for this function. Please install it first (e.g., via your package manager)."
+        return 1
+    fi
+
+    local config_path="$HOME/.aws/config"
+    if [[ ! -f "$config_path" ]]; then
+        echo "AWS config file not found at $config_path"
+        return 1
+    fi
+
+    local -a profiles
+    profiles=("${(@f)$(awk '
+        /^\[default\]$/ { print "default" }
+        /^\[profile / { sub(/^\[profile /, ""); sub(/\]$/, ""); print }
+    ' "$config_path")}")
+
+    if (( ${#profiles[@]} == 0 )); then
+        echo "No AWS profiles found in config"
+        return 1
+    fi
+
+    local selected
+    selected=$(gum choose --no-show-help --header "Select AWS Profile:" "${profiles[@]}") || return
+    selected=${selected//$'\r'/}
+    selected=${selected//$'\n'/}
+
+    export AWS_PROFILE="$selected"
+    echo "AWS profile set to: $selected"
+}
+
+awmode() {
+    local current="${AWS_ACCESS_LEVEL:-ro}"
+
+    if [[ -z "${1:-}" ]]; then
+        echo "$current"
+        return
+    fi
+
+    case "$1" in
+        toggle)
+            if [[ "$current" == ro ]]; then
+                export AWS_ACCESS_LEVEL=admin
+            else
+                export AWS_ACCESS_LEVEL=ro
+            fi
+            echo "AWS access level set to: $AWS_ACCESS_LEVEL"
+            ;;
+        ro|admin)
+            export AWS_ACCESS_LEVEL="$1"
+            echo "AWS access level set to: $AWS_ACCESS_LEVEL"
+            ;;
+        *)
+            echo "Usage: awmode [ro|admin|toggle]" >&2
+            return 1
+            ;;
+    esac
+}
