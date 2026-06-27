@@ -10,4 +10,4 @@ marimo:
 
 
 binup *ARGS:
-    deno run -A https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts {{ARGS}}
+    deno run -A --reload=https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts {{ARGS}}
