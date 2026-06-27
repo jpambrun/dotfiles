@@ -10,4 +10,4 @@ marimo:
 
 
 binup *ARGS:
-    bun x github:jpambrun/binup#main {{ARGS}}
+    deno run -A https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts {{ARGS}}
