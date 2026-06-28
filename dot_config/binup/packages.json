@@ -22,7 +22,7 @@
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.11.24",
+      "version": "0.11.25",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
@@ -53,7 +53,7 @@
     },
     {
       "repo": "ByteNess/aws-vault",
-      "version": "v7.12.3"
+      "version": "v7.12.4"
     },
     {
       "repo": "caddyserver/caddy",
@@ -97,7 +97,7 @@
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "nightly-ea24ae66-1782263505",
+      "version": "0.14.2",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.9.7-nightly.957f222",
+      "version": "0.9.7-nightly.a0008b1",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -197,7 +197,7 @@
     },
     {
       "repo": "openai/codex",
-      "version": "rust-v0.142.2"
+      "version": "rust-v0.142.3"
     },
     {
       "repo": "Orange-OpenSource/hurl",
@@ -245,7 +245,7 @@
     },
     {
       "repo": "sigoden/dufs",
-      "version": "v0.43.0",
+      "version": "v0.46.0",
       "select": "dufs-v0.43.0-x86_64-unknown-linux-musl"
     },
     {
@@ -274,7 +274,7 @@
     },
     {
       "repo": "TomWright/dasel",
-      "version": "v3.11.1"
+      "version": "v3.11.2"
     },
     {
       "repo": "twpayne/chezmoi",
@@ -294,7 +294,7 @@
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.52.2"
+      "version": "v0.56.0"
     }
   ]
 }

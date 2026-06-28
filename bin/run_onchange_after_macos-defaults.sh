@@ -50,6 +50,22 @@ write_color_default() {
   fi
 }
 
+write_symbolic_hotkey() {
+  id=$1
+  keycode=$2
+  modifiers=$3
+
+  current_enabled=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.enabled")
+  current_param0=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.0")
+  current_param1=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.1")
+  current_param2=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.2")
+
+  if [ "$current_enabled" != "true" ] || [ "$current_param0" != "65535" ] || [ "$current_param1" != "$keycode" ] || [ "$current_param2" != "$modifiers" ]; then
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$id" "{ enabled = 1; value = { parameters = (65535, $keycode, $modifiers); type = standard; }; }"
+    changed=1
+  fi
+}
+
 # Disable press-and-hold accents so held keys repeat normally.
 write_default NSGlobalDomain ApplePressAndHoldEnabled -bool false 0
 
@@ -71,6 +87,7 @@ write_default NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false 0
 write_default com.apple.dock autohide -bool true 1
 write_default com.apple.dock tilesize -int 25 25
 write_default com.apple.dock wvous-br-corner -int 14 14
+write_default com.apple.dock workspaces-swoosh-animation-off -bool true 1
 
 # Screenshot preferences.
 write_default com.apple.screencapture target -string clipboard clipboard
@@ -83,6 +100,9 @@ write_default com.apple.finder FXPreferredGroupBy -string "Date Modified" "Date 
 write_default com.apple.finder FXArrangeGroupViewBy -string Name Name
 
 # Window manager / desktop preferences.
+write_symbolic_hotkey 118 18 262144 # Control+1: Switch to Desktop 1
+write_symbolic_hotkey 119 19 262144 # Control+2: Switch to Desktop 2
+write_symbolic_hotkey 120 20 262144 # Control+3: Switch to Desktop 3
 write_default com.apple.WindowManager EnableTiledWindowMargins -bool false 0
 write_default com.apple.WindowManager GloballyEnabled -bool false 0
 write_default com.apple.WindowManager HideDesktop -bool true 1

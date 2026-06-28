@@ -188,3 +188,7 @@ awmode() {
             ;;
     esac
 }
+
+# Added by GitButler installer
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(but completions zsh)"

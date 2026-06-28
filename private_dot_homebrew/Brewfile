@@ -1,0 +1,53 @@
+tap "hashicorp/tap"
+tap "nikitabobko/tap"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Open-source GitLab command-line tool
+brew "glab"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Handy way to save and run project-specific commands
+brew "just"
+# Fly through your shell history
+brew "mcfly"
+# Lightweight cloud messaging system
+brew "nats-server"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Password manager
+brew "pass"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Object-relational database system
+brew "postgresql@17", link: true
+# Cross-shell prompt for astronauts
+brew "starship"
+# Terraform
+brew "hashicorp/tap/terraform", trusted: true
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
+# Desktop password and login vault
+cask "bitwarden"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Speech to text application
+cask "handy"
+# Window manager
+cask "loop"
+npm "@earendil-works/pi-coding-agent"

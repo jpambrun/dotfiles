@@ -53,10 +53,10 @@
     difftool = true
 [credential "https://github.com"]
         helper =
-        helper = !/usr/bin/gh auth git-credential
+        helper = !gh auth git-credential
 [credential "https://gist.github.com"]
         helper =
-        helper = !/usr/bin/gh auth git-credential
+        helper = !gh auth git-credential
 [column]
 	ui = auto
 [branch]
@@ -70,3 +70,8 @@
 	renames = true
 [commit]
 	verbose = true
+[gitbutler]
+	aiModelProvider = openai
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !glab auth git-credential
