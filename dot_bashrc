@@ -88,8 +88,8 @@ fi
 
 echo -e "\033]7;file://${HOSTNAME}${PWD}\033\\"
 
-if [[ -x /home/jpambrun/bin/xc ]]; then
-    complete -C /home/jpambrun/bin/xc xc
+if [[ -x "$HOME/bin/xc" ]]; then
+    complete -C "$HOME/bin/xc" xc
 fi
 
 if command -v chrome >/dev/null 2>&1; then

@@ -114,10 +114,10 @@ if command -v delta >/dev/null 2>&1; then
 fi
 
 # Bash-style completion for xc, if present.
-if [[ -x /home/jpambrun/bin/xc ]]; then
+if [[ -x "$HOME/bin/xc" ]]; then
     autoload -Uz bashcompinit
     bashcompinit
-    complete -C /home/jpambrun/bin/xc xc
+    complete -C "$HOME/bin/xc" xc
 fi
 
 if command -v just >/dev/null 2>&1; then

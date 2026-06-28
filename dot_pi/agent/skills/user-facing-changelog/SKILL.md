@@ -58,14 +58,14 @@ Rules:
 4. **Map deployments from infra**
    - Read deployment `version_tag` values from:
      ```text
-     /home/jpambrun/work/infra/envs/*/*/terraform.tfvars
+     $HOME/work/infra/envs/*/*/terraform.tfvars
      ```
    - A practical parser:
      ```bash
      python3 - <<'PY'
      from pathlib import Path
      import re, collections
-     root = Path('/home/jpambrun/work/infra/envs')
+     root = Path.home() / 'work/infra/envs'
      by = collections.defaultdict(list)
      for f in sorted(root.glob('*/*/terraform.tfvars')):
          text = f.read_text(errors='ignore')

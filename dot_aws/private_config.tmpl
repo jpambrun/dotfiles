@@ -1,21 +1,21 @@
 [profile dev]
-credential_process = /home/jpambrun/bin/aws-pass-credential.ts dev
+credential_process = {{ .chezmoi.homeDir }}/bin/aws-pass-credential dev
 region = us-east-1
 
 [profile staging]
-credential_process = /home/jpambrun/bin/aws-pass-credential.ts staging
+credential_process = {{ .chezmoi.homeDir }}/bin/aws-pass-credential staging
 region = us-east-1
 
 [profile pre-prod]
-credential_process = /home/jpambrun/bin/aws-pass-credential.ts pre-prod
+credential_process = {{ .chezmoi.homeDir }}/bin/aws-pass-credential pre-prod
 region = us-east-1
 
 [profile preprod]
-credential_process = /home/jpambrun/bin/aws-pass-credential.ts pre-prod
+credential_process = {{ .chezmoi.homeDir }}/bin/aws-pass-credential pre-prod
 region = us-east-1
 
 [profile prod]
-credential_process = /home/jpambrun/bin/aws-pass-credential.ts prod
+credential_process = {{ .chezmoi.homeDir }}/bin/aws-pass-credential prod
 region = us-east-1
 
 
