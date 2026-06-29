@@ -15,11 +15,12 @@ Default Confluence changelog page: `516685826` (<https://newvue-ai.atlassian.net
 
 Prefer this table shape unless the user requests otherwise:
 
-| Commit | Current deployment | Jira link | Title | User-facing description |
-|---|---|---|---|---|
+| Commit | Date | Current deployment | Jira link | Title | User-facing description |
+|---|---|---|---|---|---|
 
 Rules:
 - `Commit`: short commit hash from `git log`.
+- `Date`: commit committer date from `git log --date=short` (`YYYY-MM-DD`), so dates follow the changelog/history order.
 - `Current deployment`: deployment name(s) whose Terraform `version_tag` is exactly this commit; otherwise `—`.
 - `Jira link`: Markdown Jira links for ticket keys found in the commit title; otherwise `—`.
 - `Title`: commit subject exactly enough to be recognizable.
@@ -40,7 +41,7 @@ Rules:
 2. **Collect commits**
    - Use the requested count, defaulting to the user's stated number:
      ```bash
-     git log -<N> --pretty=format:'%h%x09%s' > /tmp/commits.tsv
+     git log -<N> --pretty=format:'%h%x09%cd%x09%s' --date=short > /tmp/commits.tsv
      ```
    - Use `git show --stat --name-status <hash>` or `git log --stat --name-status` to understand ambiguous commits.
    - Open detailed diffs only when the subject/stat is not enough to produce a user-facing description.
