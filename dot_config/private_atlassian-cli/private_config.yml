@@ -1,0 +1,7 @@
+default:
+    url: https://newvue-ai.atlassian.net
+    email: jf.pambrun@newvue.ai
+    auth_method: basic
+cfl:
+    default_space: ES
+    output_format: table
