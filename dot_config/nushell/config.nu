@@ -27,6 +27,14 @@ $env.config.show_banner = false
 alias dwcrawl = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/crawl.mjs
 alias dwserve = deno run -A https://raw.githubusercontent.com/jpambrun/local-dicomweb/refs/heads/master/server.mjs
 alias hx = helix
-alias lock = gpgconf --reload gpg-agent
-
-
+def lock [] {
+    if (which security | is-not-empty) {
+        loop {
+            security delete-generic-password -s GnuPG err> /dev/null out> /dev/null
+            if $env.LAST_EXIT_CODE != 0 {
+                break
+            }
+        }
+    }
+    gpgconf --kill gpg-agent
+}

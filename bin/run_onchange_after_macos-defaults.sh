@@ -50,30 +50,15 @@ write_color_default() {
   fi
 }
 
-write_symbolic_hotkey() {
-  id=$1
-  keycode=$2
-  modifiers=$3
-
-  current_enabled=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.enabled")
-  current_param0=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.0")
-  current_param1=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.1")
-  current_param2=$(read_plist_value com.apple.symbolichotkeys "AppleSymbolicHotKeys.$id.value.parameters.2")
-
-  if [ "$current_enabled" != "true" ] || [ "$current_param0" != "65535" ] || [ "$current_param1" != "$keycode" ] || [ "$current_param2" != "$modifiers" ]; then
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$id" "{ enabled = 1; value = { parameters = (65535, $keycode, $modifiers); type = standard; }; }"
-    changed=1
-  fi
-}
-
 # Disable press-and-hold accents so held keys repeat normally.
 write_default NSGlobalDomain ApplePressAndHoldEnabled -bool false 0
 
-# Fastest practical keyboard repeat settings: smaller numbers repeat sooner/faster.
-write_default NSGlobalDomain InitialKeyRepeat -int 10 10
-write_default NSGlobalDomain KeyRepeat -int 1 1
+# Fast keyboard repeat settings: smaller numbers repeat sooner/faster.
+write_default NSGlobalDomain InitialKeyRepeat -int 15 15
+write_default NSGlobalDomain KeyRepeat -int 2 2
 
-# Pointer size and color.
+# Pointer speed, size, and color.
+write_default NSGlobalDomain com.apple.mouse.scaling -float 0.875 0.875
 write_default com.apple.universalaccess cursorIsCustomized -bool true 1
 write_default com.apple.universalaccess mouseDriverCursorSize -float 1.77235746383667 1.77235746383667
 write_color_default com.apple.universalaccess cursorFill 1.000000 0.298953 0.000000 1.000000
@@ -82,6 +67,13 @@ write_color_default com.apple.universalaccess cursorOutline 1.000000 1.000000 1.
 # Global UI preferences.
 write_default NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true 1
 write_default NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false 0
+
+# Keep pinentry-mac from saving GPG passphrases in macOS Keychain.
+write_default org.gpgtools.pinentry-mac UseKeychain -bool false 0
+write_default org.gpgtools.common UseKeychain -bool false 0
+
+# Use Windows-style scrolling: wheel down moves content down (disable “Natural” scrolling).
+write_default NSGlobalDomain com.apple.swipescrolldirection -bool false 0
 
 # Dock preferences.
 write_default com.apple.dock autohide -bool true 1
@@ -100,9 +92,7 @@ write_default com.apple.finder FXPreferredGroupBy -string "Date Modified" "Date 
 write_default com.apple.finder FXArrangeGroupViewBy -string Name Name
 
 # Window manager / desktop preferences.
-write_symbolic_hotkey 118 18 262144 # Control+1: Switch to Desktop 1
-write_symbolic_hotkey 119 19 262144 # Control+2: Switch to Desktop 2
-write_symbolic_hotkey 120 20 262144 # Control+3: Switch to Desktop 3
+write_default com.apple.WindowManager EnableStandardClickToShowDesktop -bool false 0
 write_default com.apple.WindowManager EnableTiledWindowMargins -bool false 0
 write_default com.apple.WindowManager GloballyEnabled -bool false 0
 write_default com.apple.WindowManager HideDesktop -bool true 1

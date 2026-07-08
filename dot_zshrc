@@ -74,7 +74,12 @@ if command -v helix >/dev/null 2>&1; then
 fi
 
 if command -v gpgconf >/dev/null 2>&1; then
-    alias lock='gpgconf --reload gpg-agent'
+    lock() {
+        if command -v security >/dev/null 2>&1; then
+            while security delete-generic-password -s GnuPG >/dev/null 2>&1; do :; done
+        fi
+        gpgconf --kill gpg-agent
+    }
 fi
 
 if command -v deno >/dev/null 2>&1; then

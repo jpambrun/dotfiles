@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.80.2",
-  "theme": "catppuccin-mocha",
+  "lastChangelogVersion": "0.80.3",
+  "theme": "catppuccin-latte/catppuccin-mocha",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "high",

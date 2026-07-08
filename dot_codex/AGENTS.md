@@ -1,11 +1,5 @@
 # Global agent guidance
 
-## Shell preference
-
-The user primarily uses Nushell (`nu`).
-- When giving commands to the user, write them in Nushell syntax.
-- When running commands yourself, prefer Nushell-compatible syntax where practical.
-
 ## Version control
 
 - The user uses GitLab.
@@ -24,3 +18,10 @@ When working in a git repository, especially for git-related requests, first che
 - Before suggesting a potentially disruptive git command in this situation, briefly mention the GitButler context and consider whether there is a safer `but`-based workflow first. Ask for confirmation if the operation could interfere with the user's workflow.
 - If proposing a new GitButler virtual branch, stack branch, or regular git branch, default to the `jpambrun/...` prefix.
 - If a git task depends on branch context, inspect both git state and, when relevant, GitButler state first instead of assuming a standard git branch workflow.
+
+## Jira / JTK
+
+- Use the `$jtk-jira` skill for Jira searches, ticket creation, updates, assignment, workflow transitions, comments, and issue links.
+- `VW` is for product/application code work in the EmpowerSuite repository.
+- `IN` is for infrastructure and Terraform work in the Infra repository.
+- Do not create `IN` issues for EmpowerSuite application code changes just because the symptom involves AWS, ECS, CloudWatch, deployment, or NATS. Use `VW` unless the requested work changes infrastructure/Terraform or belongs in the Infra repository.
