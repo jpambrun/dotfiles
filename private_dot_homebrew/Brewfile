@@ -4,6 +4,8 @@ tap "nikitabobko/tap"
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Incredibly fast JavaScript runtime, bundler, test runner, and package manager
 brew "bun"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -44,10 +46,16 @@ brew "hashicorp/tap/terraform", trusted: true
 cask "nikitabobko/tap/aerospace", trusted: true
 # Desktop password and login vault
 cask "bitwarden"
+# OpenAI's Codex desktop app for managing coding agents
+cask "codex-app"
+# Offline voice-to-text dictation app with AI enhancement
+cask "fluidvoice"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Speech to text application
 cask "handy"
+# Customise mouse behavior
+cask "linearmouse"
 # Window manager
 cask "loop"
 npm "@earendil-works/pi-coding-agent"
