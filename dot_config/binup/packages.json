@@ -200,10 +200,6 @@
       "select": "jtk"
     },
     {
-      "repo": "openai/codex",
-      "version": "rust-v0.143.0"
-    },
-    {
       "repo": "Orange-OpenSource/hurl",
       "version": "8.0.1"
     },
