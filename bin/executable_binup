@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+repo=https://github.com/jpambrun/binup.git
+revision=$(git ls-remote "$repo" refs/heads/main | awk 'NR == 1 { print $1 }')
+if [ -z "$revision" ]; then
+  echo "binup: could not resolve remote main revision" >&2
+  exit 1
+fi
+
+url=https://raw.githubusercontent.com/jpambrun/binup/$revision/binup.ts
+work_dir=$(mktemp -d "${TMPDIR:-/tmp}/binup.XXXXXX")
+script=$work_dir/binup.ts
+trap 'rm -rf "$work_dir"' 0 HUP INT TERM
+
+curl --fail --silent --show-error --location "$url" --output "$script"
+deno run \
+  --allow-env \
+  --allow-read \
+  --allow-write \
+  --allow-run \
+  --allow-net \
+  --allow-sys=uid \
+  "$script" "$@"

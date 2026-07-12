@@ -7,7 +7,3 @@ cleanup:
 [no-cd]
 marimo:
     uv run --no-project --with duckdb,marimo,pyarrow,polars --python 3.11.6  marimo edit  --no-token --headless dash.py
-
-
-binup *ARGS:
-    deno run -A --reload=https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts https://raw.githubusercontent.com/jpambrun/binup/refs/heads/main/binup.ts {{ARGS}}
