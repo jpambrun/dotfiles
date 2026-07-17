@@ -10,7 +10,7 @@
     },
     {
       "repo": "amir20/dtop",
-      "version": "v0.7.8"
+      "version": "v0.7.9"
     },
     {
       "repo": "antonmedv/fx",
@@ -22,7 +22,7 @@
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.11.28",
+      "version": "0.11.29",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "repo": "biomejs/biome",
-      "version": "@biomejs/biome@2.5.3"
+      "version": "@biomejs/biome@2.5.4"
     },
     {
       "repo": "blopker/codebook",
@@ -45,15 +45,15 @@
     },
     {
       "repo": "BurntSushi/ripgrep",
-      "version": "15.1.0"
+      "version": "15.2.0"
     },
     {
       "repo": "Byron/dua-cli",
-      "version": "v2.37.1"
+      "version": "v2.38.0"
     },
     {
       "repo": "ByteNess/aws-vault",
-      "version": "v7.12.5"
+      "version": "v7.13.0"
     },
     {
       "repo": "caddyserver/caddy",
@@ -61,7 +61,7 @@
     },
     {
       "repo": "Canop/broot",
-      "version": "v1.57.0"
+      "version": "v1.58.0"
     },
     {
       "repo": "cantino/mcfly",
@@ -73,7 +73,7 @@
     },
     {
       "repo": "casey/just",
-      "version": "1.55.1"
+      "version": "1.56.0"
     },
     {
       "repo": "charmbracelet/glow",
@@ -93,11 +93,11 @@
     },
     {
       "repo": "chronologos/lightjj",
-      "version": "v1.34.0"
+      "version": "v1.34.1"
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "nightly-9fc30ac2-1783472041",
+      "version": "0.14.4",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "repo": "denoland/deno",
-      "version": "v2.9.2"
+      "version": "v2.9.3"
     },
     {
       "repo": "derailed/k9s",
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.9.7-nightly.98d4d4e",
+      "version": "0.10.1-nightly.31be224",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -132,8 +132,16 @@
       "version": "v1.5.4"
     },
     {
+      "repo": "EarthBuild/earthbuild",
+      "version": "v0.8.17"
+    },
+    {
       "repo": "F1bonacc1/process-compose",
-      "version": "v1.116.0"
+      "version": "v1.120.0"
+    },
+    {
+      "repo": "getsentry/sentry-cli",
+      "version": "3.6.0"
     },
     {
       "repo": "grafana/k6",
@@ -153,7 +161,7 @@
     },
     {
       "repo": "k1LoW/mo",
-      "version": "v1.6.3"
+      "version": "v1.6.5"
     },
     {
       "repo": "keidarcy/e1s",
@@ -165,7 +173,7 @@
     },
     {
       "repo": "modem-dev/hunk",
-      "version": "v0.17.0"
+      "version": "v0.17.1"
     },
     {
       "repo": "multiprocessio/dsq",
@@ -185,7 +193,7 @@
     },
     {
       "repo": "ogulcancelik/herdr",
-      "version": "v0.7.3"
+      "version": "v0.7.4"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
@@ -195,7 +203,7 @@
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "jtk-v1.3.150",
+      "version": "jtk-v1.3.151",
       "name": "jtk",
       "select": "jtk"
     },
@@ -213,7 +221,7 @@
     },
     {
       "repo": "pnpm/pnpm",
-      "version": "v11.10.0"
+      "version": "v11.13.1"
     },
     {
       "repo": "raaymax/lazytail",
@@ -221,7 +229,7 @@
     },
     {
       "repo": "runmedev/runme",
-      "version": "v3.17.0"
+      "version": "v3.17.2"
     },
     {
       "repo": "sachaos/viddy",
@@ -254,11 +262,11 @@
     },
     {
       "repo": "sst/opencode",
-      "version": "v1.17.15"
+      "version": "v1.18.3"
     },
     {
       "repo": "stacklok/toolhive",
-      "version": "v0.34.0"
+      "version": "v0.39.0"
     },
     {
       "repo": "starship/starship",
@@ -294,7 +302,7 @@
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.59.1"
+      "version": "v0.60.0"
     }
   ]
 }

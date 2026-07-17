@@ -19,8 +19,11 @@ write_default() {
 
   current=$(defaults read "$domain" "$key" 2>/dev/null || true)
   if [ "$current" != "$expected" ]; then
-    defaults write "$domain" "$key" "$type" "$value"
-    changed=1
+    if defaults write "$domain" "$key" "$type" "$value"; then
+      changed=1
+    else
+      echo "warning: failed to write $domain $key" >&2
+    fi
   fi
 }
 
@@ -45,8 +48,11 @@ write_color_default() {
   current_alpha=$(read_plist_value "$domain" "$key.alpha")
 
   if [ "$current_red" != "$red" ] || [ "$current_green" != "$green" ] || [ "$current_blue" != "$blue" ] || [ "$current_alpha" != "$alpha" ]; then
-    defaults write "$domain" "$key" -dict red "$red" green "$green" blue "$blue" alpha "$alpha"
-    changed=1
+    if defaults write "$domain" "$key" -dict red "$red" green "$green" blue "$blue" alpha "$alpha"; then
+      changed=1
+    else
+      echo "warning: failed to write $domain $key" >&2
+    fi
   fi
 }
 
