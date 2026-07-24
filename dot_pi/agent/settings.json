@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.3",
+  "lastChangelogVersion": "0.82.0",
   "theme": "catppuccin-latte/catppuccin-mocha",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
+  "defaultModel": "gpt-5.6-terra",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@mjakl/pi-kagi-api",
@@ -14,9 +14,8 @@
     "npm:pi-codex-search"
   ],
   "enabledModels": [
-    "openai-codex/gpt-5.4",
-    "openai-codex/gpt-5.3-codex-spark",
-    "openai-codex/gpt-5.5",
-    "openai-codex/gpt-5.4-mini"
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-luna"
   ]
 }

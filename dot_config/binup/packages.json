@@ -10,7 +10,7 @@
     },
     {
       "repo": "amir20/dtop",
-      "version": "v0.7.9"
+      "version": "v0.7.10"
     },
     {
       "repo": "antonmedv/fx",
@@ -18,11 +18,11 @@
     },
     {
       "repo": "ast-grep/ast-grep",
-      "version": "0.44.1"
+      "version": "0.45.0"
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.11.29",
+      "version": "0.11.32",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "repo": "biomejs/biome",
-      "version": "@biomejs/biome@2.5.4"
+      "version": "@biomejs/biome@2.5.5"
     },
     {
       "repo": "blopker/codebook",
@@ -49,11 +49,11 @@
     },
     {
       "repo": "Byron/dua-cli",
-      "version": "v2.38.0"
+      "version": "v2.38.1"
     },
     {
       "repo": "ByteNess/aws-vault",
-      "version": "v7.13.0"
+      "version": "v7.13.1"
     },
     {
       "repo": "caddyserver/caddy",
@@ -73,7 +73,7 @@
     },
     {
       "repo": "casey/just",
-      "version": "1.56.0"
+      "version": "1.57.0"
     },
     {
       "repo": "charmbracelet/glow",
@@ -93,11 +93,11 @@
     },
     {
       "repo": "chronologos/lightjj",
-      "version": "v1.34.1"
+      "version": "v1.36.0"
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "0.14.4",
+      "version": "nightly-082cfea9-1784854310",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "repo": "denoland/deno",
-      "version": "v2.9.3"
+      "version": "v2.9.4"
     },
     {
       "repo": "derailed/k9s",
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.10.1-nightly.31be224",
+      "version": "0.10.2-nightly.fde8c52",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -129,7 +129,7 @@
     },
     {
       "repo": "duckdb/duckdb",
-      "version": "v1.5.4"
+      "version": "v1.5.5"
     },
     {
       "repo": "EarthBuild/earthbuild",
@@ -140,8 +140,12 @@
       "version": "v1.120.0"
     },
     {
+      "repo": "faiscadev/fakecloud",
+      "version": "v0.44.1"
+    },
+    {
       "repo": "getsentry/sentry-cli",
-      "version": "3.6.0"
+      "version": "3.6.2"
     },
     {
       "repo": "grafana/k6",
@@ -157,11 +161,11 @@
     },
     {
       "repo": "junegunn/fzf",
-      "version": "v0.74.0"
+      "version": "v0.74.1"
     },
     {
       "repo": "k1LoW/mo",
-      "version": "v1.6.5"
+      "version": "v1.6.6"
     },
     {
       "repo": "keidarcy/e1s",
@@ -173,7 +177,7 @@
     },
     {
       "repo": "modem-dev/hunk",
-      "version": "v0.17.1"
+      "version": "v0.17.4"
     },
     {
       "repo": "multiprocessio/dsq",
@@ -193,17 +197,17 @@
     },
     {
       "repo": "ogulcancelik/herdr",
-      "version": "v0.7.4"
+      "version": "v0.7.5"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "cfl-v1.3.74",
+      "version": "cfl-v1.3.86",
       "name": "cfl",
       "select": "cfl"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "jtk-v1.3.151",
+      "version": "jtk-v1.3.160",
       "name": "jtk",
       "select": "jtk"
     },
@@ -221,7 +225,7 @@
     },
     {
       "repo": "pnpm/pnpm",
-      "version": "v11.13.1"
+      "version": "v11.17.0"
     },
     {
       "repo": "raaymax/lazytail",
@@ -262,11 +266,11 @@
     },
     {
       "repo": "sst/opencode",
-      "version": "v1.18.3"
+      "version": "v1.18.4"
     },
     {
       "repo": "stacklok/toolhive",
-      "version": "v0.39.0"
+      "version": "v0.40.1"
     },
     {
       "repo": "starship/starship",
@@ -286,7 +290,7 @@
     },
     {
       "repo": "twpayne/chezmoi",
-      "version": "v2.71.0"
+      "version": "v2.71.1"
     },
     {
       "repo": "watchexec/watchexec",
@@ -302,7 +306,7 @@
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.60.0"
+      "version": "v0.61.2"
     }
   ]
 }

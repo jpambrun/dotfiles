@@ -2,6 +2,10 @@
 
 Follow YAGNI principles, and one-liner solutions.
 
+## Sentry
+
+- `sentry-cli` defaults to the `newvue` organization and `empowersuite` project. Use `sentry-cli issues list` to inspect relevant Sentry issues when diagnosing errors or regressions.
+
 ## Version control
 
 - The user uses GitLab.
