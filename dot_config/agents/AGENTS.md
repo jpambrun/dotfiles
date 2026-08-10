@@ -13,11 +13,10 @@ Follow YAGNI principles, and one-liner solutions.
 - When replying to merge request comments, reply to each comment thread individually instead of posting a single combined comment.
 - When proposing a new branch name, prefer the `jpambrun/...` prefix unless the user asks otherwise.
 
-## GitButler awareness
+## GitButler
 
-When working in a git repository, especially for git-related requests, first check the current branch.
+For git-related work, first inspect the current branch.
 
-- If the current branch is `gitbutler/workspace`, assume the user is using GitButler alongside git.
-- In that case, avoid advice that casually treats `gitbutler/workspace` like a normal feature branch.
-- Prefer checking or managing GitButler state with `but` instead of relying only on raw git commands when it helps.
-
+- Use GitButler's `but` CLI only when the current branch is `gitbutler/workspace`.
+- Otherwise, use standard Git; do not use GitButler in repositories that are not already using it.
+- Never initialize, set up, enable, or configure GitButler, including with `but setup`.
