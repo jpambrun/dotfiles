@@ -1,0 +1,15 @@
+[profile dev]
+credential_process = secretd aws credentials dev
+region = us-east-2
+
+[profile staging]
+credential_process = secretd aws credentials staging
+region = us-east-2
+
+[profile preprod]
+credential_process = secretd aws credentials preprod
+region = us-east-2
+
+[profile prod]
+credential_process = secretd aws credentials prod
+region = us-east-2

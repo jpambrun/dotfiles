@@ -22,22 +22,22 @@
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.12.3",
+      "version": "0.12.5",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
       "repo": "Ataraxy-Labs/weave",
-      "version": "v0.3.6"
+      "version": "v0.5.1"
     },
     {
       "repo": "Ataraxy-Labs/weave",
-      "version": "v0.3.6",
+      "version": "v0.5.1",
       "name": "weave-driver",
       "select": "weave-driver"
     },
     {
       "repo": "biomejs/biome",
-      "version": "@biomejs/biome@2.5.7"
+      "version": "@biomejs/biome@2.5.9"
     },
     {
       "repo": "blopker/codebook",
@@ -49,11 +49,11 @@
     },
     {
       "repo": "Byron/dua-cli",
-      "version": "v2.41.1"
+      "version": "v2.42.1"
     },
     {
       "repo": "ByteNess/aws-vault",
-      "version": "v7.13.3"
+      "version": "v7.13.5"
     },
     {
       "repo": "caddyserver/caddy",
@@ -69,7 +69,7 @@
     },
     {
       "repo": "carvel-dev/ytt",
-      "version": "v0.55.1"
+      "version": "v0.55.2"
     },
     {
       "repo": "casey/just",
@@ -77,11 +77,11 @@
     },
     {
       "repo": "charmbracelet/glow",
-      "version": "v2.1.2"
+      "version": "v3.0.0"
     },
     {
       "repo": "charmbracelet/gum",
-      "version": "v0.17.0"
+      "version": "v2.0.0"
     },
     {
       "repo": "charmbracelet/mods",
@@ -93,11 +93,11 @@
     },
     {
       "repo": "chronologos/lightjj",
-      "version": "v1.36.1"
+      "version": "v1.37.0"
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "nightly-2b3a5acb-1786317928",
+      "version": "nightly-a5927cdf-1787046805",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.10.4-nightly.d4c416c",
+      "version": "0.10.6-nightly.d5b4abd",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -137,11 +137,11 @@
     },
     {
       "repo": "F1bonacc1/process-compose",
-      "version": "v1.120.0"
+      "version": "v1.122.0"
     },
     {
       "repo": "faiscadev/fakecloud",
-      "version": "v0.44.9"
+      "version": "v0.44.10"
     },
     {
       "repo": "getsentry/sentry-cli",
@@ -153,7 +153,7 @@
     },
     {
       "repo": "jdx/aube",
-      "version": "v1.38.1"
+      "version": "v1.41.0"
     },
     {
       "repo": "Jguer/yay",
@@ -165,7 +165,7 @@
     },
     {
       "repo": "junegunn/fzf",
-      "version": "v0.74.2"
+      "version": "v0.74.3"
     },
     {
       "repo": "k1LoW/mo",
@@ -181,7 +181,7 @@
     },
     {
       "repo": "modem-dev/hunk",
-      "version": "v0.18.0"
+      "version": "v0.19.0"
     },
     {
       "repo": "multiprocessio/dsq",
@@ -201,11 +201,11 @@
     },
     {
       "repo": "ogulcancelik/herdr",
-      "version": "v0.8.0"
+      "version": "v0.8.2"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "cfl-v1.3.86",
+      "version": "cfl-v1.3.96",
       "name": "cfl",
       "select": "cfl"
     },
@@ -221,7 +221,7 @@
     },
     {
       "repo": "oven-sh/bun",
-      "version": "bun-v1.3.14"
+      "version": "bun-v1.4.0"
     },
     {
       "repo": "oxyno-zeta/s3-proxy",
@@ -229,7 +229,7 @@
     },
     {
       "repo": "pnpm/pnpm",
-      "version": "v11.21.0"
+      "version": "v11.22.0"
     },
     {
       "repo": "raaymax/lazytail",
@@ -237,7 +237,7 @@
     },
     {
       "repo": "runmedev/runme",
-      "version": "v3.17.2"
+      "version": "v3.17.4"
     },
     {
       "repo": "sachaos/viddy",
@@ -270,11 +270,11 @@
     },
     {
       "repo": "sst/opencode",
-      "version": "v1.18.16"
+      "version": "v1.18.19"
     },
     {
       "repo": "stacklok/toolhive",
-      "version": "v0.42.1"
+      "version": "v0.44.0"
     },
     {
       "repo": "starship/starship",
@@ -282,11 +282,11 @@
     },
     {
       "repo": "steveyegge/beads",
-      "version": "v1.1.2"
+      "version": "v1.2.2"
     },
     {
       "repo": "surrealdb/surrealdb",
-      "version": "v3.2.0"
+      "version": "v3.2.4"
     },
     {
       "repo": "TomWright/dasel",
@@ -295,6 +295,10 @@
     {
       "repo": "twpayne/chezmoi",
       "version": "v2.72.0"
+    },
+    {
+      "repo": "typst/typst",
+      "version": "v0.15.1"
     },
     {
       "repo": "watchexec/watchexec",
@@ -306,11 +310,11 @@
     },
     {
       "repo": "zellij-org/zellij",
-      "version": "v0.44.3"
+      "version": "v0.45.0"
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.63.2"
+      "version": "v0.63.7"
     }
   ]
 }

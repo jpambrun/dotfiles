@@ -29,4 +29,7 @@
     "light": "Ayu Light",
     "dark": "Ayu Dark",
   },
+  "markdown_preview": {
+    "limit_content_width": false
+  }
 }

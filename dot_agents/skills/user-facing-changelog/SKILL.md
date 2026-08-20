@@ -3,6 +3,7 @@ name: user-facing-changelog
 version: 1.0.0
 description: "Create or update a user-facing Confluence changelog from recent commits. Use when asked to write/expand a changelog, inspect recent commits, add Jira links/context, or show which deployments currently sit on each version tag."
 author: jpambrun
+disable-model-invocation: true
 ---
 
 # User-Facing Changelog Skill
