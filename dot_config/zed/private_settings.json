@@ -15,6 +15,13 @@
   "diff_view_style": "unified",
   "vim_mode": true,
   "agent_servers": {
+    "antigravity-acp": {
+      "default_config_options": {
+        "mode": "yolo",
+        "model": "gemini-3.8-flash-high"
+      },
+      "type": "registry"
+    },
     "github-copilot-cli": {
       "type": "registry"
     },
