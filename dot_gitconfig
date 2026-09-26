@@ -70,8 +70,6 @@
 	renames = true
 [commit]
 	verbose = true
-[gitbutler]
-	aiModelProvider = openai
 [credential "https://gitlab.com"]
 	helper = 
 	helper = !glab auth git-credential

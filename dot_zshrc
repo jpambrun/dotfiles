@@ -196,4 +196,7 @@ awmode() {
 
 # Added by GitButler installer
 export PATH="$HOME/.local/bin:$PATH"
+
+# Homebrew's keg-only rustup installs Cargo here.
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 eval "$(but completions zsh)"
