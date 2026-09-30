@@ -1,5 +1,5 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.3",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.4",
   "schemes" : [
     {
       "buttons" : {
@@ -71,6 +71,28 @@
       "scrolling" : {
         "reverse" : {
           "vertical" : false
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc548",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "logitech" : {
+        "highResolutionWheel" : true
+      },
+      "pointer" : {
+        "disableAcceleration" : false,
+        "hardwareDPI" : 1050
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     }

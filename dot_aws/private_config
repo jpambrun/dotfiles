@@ -13,3 +13,7 @@ region = us-east-2
 [profile prod]
 credential_process = secretd aws credentials prod
 region = us-east-2
+
+[profile root]
+credential_process = secretd aws credentials root
+region = us-east-2
