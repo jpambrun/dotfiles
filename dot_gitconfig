@@ -4,6 +4,7 @@
 
 [core]
   editor = helix
+  hooksPath = ~/.config/git/hooks
   #pager = delta --light --line-numbers
 
 [interactive]

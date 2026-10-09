@@ -14,7 +14,7 @@
     },
     {
       "repo": "antonmedv/fx",
-      "version": "39.2.0"
+      "version": "40.0.0"
     },
     {
       "repo": "ast-grep/ast-grep",
@@ -22,7 +22,7 @@
     },
     {
       "repo": "astral-sh/uv",
-      "version": "0.12.21",
+      "version": "0.12.23",
       "select": "uv-x86_64-unknown-linux-musl"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "repo": "biomejs/biome",
-      "version": "@biomejs/biome@2.5.14"
+      "version": "@biomejs/biome@2.5.15"
     },
     {
       "repo": "blopker/codebook",
@@ -53,15 +53,15 @@
     },
     {
       "repo": "ByteNess/aws-vault",
-      "version": "v7.15.0"
+      "version": "v7.16.0"
     },
     {
       "repo": "caddyserver/caddy",
-      "version": "v2.11.4"
+      "version": "v2.11.7"
     },
     {
       "repo": "Canop/broot",
-      "version": "v1.60.2"
+      "version": "v1.61.0"
     },
     {
       "repo": "cantino/mcfly",
@@ -97,12 +97,12 @@
     },
     {
       "repo": "ClementTsang/bottom",
-      "version": "nightly-048deff9-1790730068",
+      "version": "nightly-7d65d62c-1791077604",
       "select": "x86_64-unknown-linux-musl.tar.gz"
     },
     {
       "repo": "dandavison/delta",
-      "version": "0.19.2"
+      "version": "0.20.1"
     },
     {
       "repo": "denoland/deno",
@@ -118,7 +118,7 @@
     },
     {
       "repo": "dmtrKovalenko/fff",
-      "version": "0.11.1-nightly.89c1927",
+      "version": "0.11.1-nightly.c188e7a",
       "name": "fff-mcp",
       "select": "fff-mcp-x86_64-unknown-linux-musl"
     },
@@ -141,7 +141,7 @@
     },
     {
       "repo": "faiscadev/fakecloud",
-      "version": "v0.46.0"
+      "version": "v0.50.0"
     },
     {
       "repo": "getsentry/cli",
@@ -158,11 +158,11 @@
     },
     {
       "repo": "jdx/aube",
-      "version": "v2.6.1"
+      "version": "v2.7.0"
     },
     {
       "repo": "jesseduffield/lazygit",
-      "version": "v0.65.1"
+      "version": "v0.66.0"
     },
     {
       "repo": "Jguer/yay",
@@ -190,7 +190,7 @@
     },
     {
       "repo": "modem-dev/hunk",
-      "version": "v0.22.0"
+      "version": "v0.23.0"
     },
     {
       "repo": "multiprocessio/dsq",
@@ -214,13 +214,13 @@
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "cfl-v1.3.97",
+      "version": "cfl-v1.3.109",
       "name": "cfl",
       "select": "cfl"
     },
     {
       "repo": "open-cli-collective/atlassian-cli",
-      "version": "jtk-v1.3.169",
+      "version": "jtk-v1.3.181",
       "name": "jtk",
       "select": "jtk"
     },
@@ -238,7 +238,7 @@
     },
     {
       "repo": "pnpm/pnpm",
-      "version": "v12.8.1"
+      "version": "v12.10.1"
     },
     {
       "repo": "raaymax/lazytail",
@@ -246,7 +246,7 @@
     },
     {
       "repo": "runmedev/runme",
-      "version": "v3.17.5"
+      "version": "v3.17.6"
     },
     {
       "repo": "sachaos/viddy",
@@ -279,7 +279,7 @@
     },
     {
       "repo": "sst/opencode",
-      "version": "v1.18.33"
+      "version": "v1.18.35"
     },
     {
       "repo": "stacklok/toolhive",
@@ -291,7 +291,7 @@
     },
     {
       "repo": "steveyegge/beads",
-      "version": "v1.3.0"
+      "version": "v1.3.1"
     },
     {
       "repo": "surrealdb/surrealdb",
@@ -311,7 +311,7 @@
     },
     {
       "repo": "watchexec/watchexec",
-      "version": "v2.7.3"
+      "version": "v2.8.0"
     },
     {
       "repo": "Wilfred/difftastic",
@@ -323,7 +323,7 @@
     },
     {
       "repo": "zzet/gortex",
-      "version": "v0.64.5"
+      "version": "v0.64.7"
     }
   ]
 }

@@ -1,2 +1,4 @@
 readme.md
+docs/
+tests/
 dot_config/nushell/secret.toml

@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+common_dir=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) || exit 0
+git_dir=$(git rev-parse --absolute-git-dir 2>/dev/null) || exit 0
+[[ "$git_dir" != "$common_dir" ]] || exit 0
+worktree=$(git rev-parse --show-toplevel) || exit 0
+
+# Git can export repository-local variables when invoking a hook. Clear them
+# before querying the main worktree, especially its index.
+while IFS= read -r variable; do
+    unset "$variable"
+done < <(git rev-parse --local-env-vars)
+
+# The first entry is the main worktree. Resolve it through the common Git
+# directory, including repositories that use a separate Git directory.
+IFS= read -r -d '' main_record < <(git --git-dir="$common_dir" worktree list --porcelain -z)
+main_worktree=${main_record#worktree }
+[[ -f "$main_worktree/.worktreeinclude" ]] || exit 0
+
+while IFS= read -r -d '' file; do
+    destination="$worktree/$file"
+    [[ ! -e "$destination" && ! -L "$destination" ]] || continue
+
+    # Do not follow existing parent symlinks or replace parent files.
+    parent=${destination%/*}
+    while [[ "$parent" != "$worktree" ]]; do
+        if [[ -L "$parent" || ( -e "$parent" && ! -d "$parent" ) ]]; then
+            continue 2
+        fi
+        parent=${parent%/*}
+    done
+
+    mkdir -p -- "${destination%/*}"
+    ln -s -- "$main_worktree/$file" "$destination"
+done < <(git -C "$main_worktree" ls-files --others --ignored \
+    --exclude-from="$main_worktree/.worktreeinclude" -z)
