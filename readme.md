@@ -14,8 +14,9 @@ ssh-keygen # add key to github
 
 mkdir bin
 cd bin
-curl https://i.ip.dev.health/twpayne/chezmoi | bash
-./chezmoi init git@github.com:jpambrun/dotfiles
+curl https://i.jpillora.com/cli?as=gh | bash
+curl https://i.jpillora.com/twpayne/chezmoi | bash
+./chezmoi init jpambrun/dotfiles
 ```
 
 

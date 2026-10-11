@@ -14,11 +14,4 @@ script=$work_dir/binup.ts
 trap 'rm -rf "$work_dir"' 0 HUP INT TERM
 
 curl --fail --silent --show-error --location "$url" --output "$script"
-deno run \
-  --allow-env \
-  --allow-read \
-  --allow-write \
-  --allow-run \
-  --allow-net \
-  --allow-sys=uid \
-  "$script" "$@"
+bun run "$script" "$@"
