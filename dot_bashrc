@@ -2,11 +2,12 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 export FNM_DIR="$HOME/.local/share/fnm"
 export PATH="$FNM_DIR/aliases/default/bin:$HOME/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
+
+# The remaining setup is only for interactive shells.
+[[ $- != *i* ]] && return
+
 export ATLASSIAN_CLI_KEYRING_BACKEND=pass
 
 if command -v gpg-connect-agent >/dev/null 2>&1 && GPG_TTY=$(tty 2>/dev/null); then
